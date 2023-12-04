@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #03a9f4;
+    color: #f0f4f5;
     position: relative;
 }
 
@@ -25,6 +25,12 @@
 }
 @media (max-width: 600px) {
     .blackRectangle {
-        display: none; /* Hide the black rectangle */
-    }
+        display: none; /* Hide the black rectangle */
+}
+}
+
+.name{
+    color: brown;
+    text-align: center;
+    font-size: 4vw;
 }
