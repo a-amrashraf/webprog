@@ -35,11 +35,12 @@
     font-size: 4vw;
 }
 
-.byCategory{
+h2{
     padding-top: 4vw;
 text-align: center;
 padding-bottom:2vw ;
 }
+
 .lowerRectangle
 {
     background-color: black;
@@ -59,3 +60,4 @@ padding-bottom:2vw ;
 .greyText {
     color: grey;
 }
+
