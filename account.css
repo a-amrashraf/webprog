@@ -1,0 +1,80 @@
+*{
+    font-family: "Segoe UI Light";
+}
+
+body{
+    background-image: linear-gradient(rgb(21, 0, 97),rgb(0, 255, 195));
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
+}
+.passContainer{
+    padding: 5rem;
+    border-radius: 2.5rem;
+    background-color: rgb(159, 181, 179);
+    width: 25vw;
+    text-align: center;
+}
+.passContainer .PassLabel{
+    text-align: center;
+}
+.passContainer .listValidations{
+    text-align: left;
+}
+.inputContainer{
+    width: 100%;
+    display: inline-block;
+    border-radius: 2rem;
+    background-color: rgb(247, 249, 249);
+    border-color: aquamarine;
+}
+.passContainer .inputContainer #passInput{
+    width: 80%;
+    height: 2.5rem;
+    background-color: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    text-indent: 0.5rem;
+    outline: none;
+    border: none;
+}
+.passContainer .inputContainer #icon{
+    margin-left: 0.5vw;
+    cursor: pointer;
+}
+
+.passContainer .inputContainer:hover{
+    border-color: rgb(0, 255, 195);
+}
+.listValidations li{
+    padding-bottom: 0.5vh;
+    list-style: none;
+}
+.listValidations li.valid{
+    color: green;
+    font-weight: bold;
+}
+.listValidations li.invalid{
+    color: red;
+    font-weight: bold;
+}
+.passContainer .submitButton{
+    margin-top: 5vh;
+    padding-top: 2vh;
+    border-radius: 2rem;
+    padding-bottom: 2vh;
+    width: 7.5vw;
+    font-size: 1vw;
+    display: inline-block;
+    font-weight: bold;
+    
+    
+}
+.passContainer .submitButton:hover{
+    cursor: pointer;
+    border-color: rgb(0, 255, 195);
+}
