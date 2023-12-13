@@ -44,13 +44,15 @@
         $stmt = "SELECT * from user where Username='$user' AND Password='$password'";
         $result = mysqli_query($conn, $stmt);
         if($row = mysqli_fetch_array($result)){
-            header("Location: index.html");
+            // Redirect to index.html with username as a parameter
+            header("Location: index.html?username=" . urlencode($user));
             exit(); // Make sure to exit after redirection
         } else {
             echo "<h1>Login failed. Username or password are incorrect</h1>";
         }
     }
 ?>
+
 
 
 </body>
