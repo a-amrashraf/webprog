@@ -1,71 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Sign In</title>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="Texx.css">
+
 </head>
+
 <body>
-    <h2>Sign In</h2>
-    <form action="index.html" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Sign In">
-    </form>
-    <?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database configuration
-    $host = "localhost"; // Replace with your host if it's different
-    $dbname = "businessdb"; // Replace with your database name
-    $username_db = "root"; // Update with your database username
-    $password_db = ""; // Replace with your database password
-    
-    // Attempt to connect to the database
-    try {
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username_db, $password_db);
-        // Set PDO to throw exceptions on error
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Connection failed: " . $e->getMessage());
-    }
-    
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Retrieve username and password from the form
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-    
-        // Prepare a query to fetch the user's credentials from the database
-        $query = "SELECT * FROM users WHERE Username = :username";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
-    
-        // Fetch the user's data
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-        // Check if a user was found with the given username
-        if ($user) {
-            // Verify the password
-            if (password_verify($password, $user['Password'])) {
-                // Start a session and store username for future use
-                session_start();
-                $_SESSION["username"] = $username;
-    
-                // Redirect to a logged-in page or dashboard
-                header("Location: dashboard.php");
-                exit();
-            } else {
-                // Password is incorrect
-                echo "Invalid username or password. Please try again.";
-            }
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form class="login-form" method="post">
+                    <h2 class="text-center mb-4">Admin Login</h2>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="user" id="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="pwd" id="password" required>
+                    </div>
+                    <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+  <?php
+    if(isset($_POST['btn'])){
+        $user = $_POST["user"]; // Update variable name
+        $password = $_POST["pwd"]; // Update variable name
+        
+        $conn = mysqli_connect("localhost", "root", "", "businessdb");
+        $stmt = "SELECT * from user where Username='$user' AND Password='$password'";
+        $result = mysqli_query($conn, $stmt);
+        if($row = mysqli_fetch_array($result)){
+            header("Location: index.html");
+            exit(); // Make sure to exit after redirection
         } else {
-            // Username not found
-            echo "Invalid username or password. Please try again.";
+            echo "<h1>Login failed. Username or password are incorrect</h1>";
         }
     }
-}
-    ?>
+?>
+
+
 </body>
+
 </html>
