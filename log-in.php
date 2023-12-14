@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin Login</title>
+    <title> Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="Texx.css">
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <form class="login-form" method="post">
-                    <h2 class="text-center mb-4">Admin Login</h2>
+                    <h2 class="text-center mb-4"> Login</h2>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" name="user" id="username" required>
@@ -26,6 +26,8 @@
                         <input type="password" class="form-control" name="pwd" id="password" required>
                     </div>
                     <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
+                    <!-- Add Signup Button -->
+                <button type="button" class="btn btn-secondary btn-block mt-3" onclick="location.href='signin.php';">Sign Up</button>
                 </form>
             </div>
         </div>
