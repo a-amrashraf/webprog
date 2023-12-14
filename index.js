@@ -99,3 +99,4 @@ function submitPassword(){
         window.alert("Password is valid!");
     }
 }
+
