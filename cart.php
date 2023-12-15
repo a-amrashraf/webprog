@@ -23,11 +23,43 @@
         </div>
          
         <h1 class="name">MY CART</h2><br>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch_data']) && $_GET['fetch_data'] === 'true') {
-    echo '<div id="cartInfo">';
-    include_once('connection.php');
+        <?php
+include_once('connection.php');
 
+// Fetch data from cart_tires table
+$sqlCart = "SELECT * FROM cart_tires";
+$resultCart = mysqli_query($conn, $sqlCart);
+
+echo '<div id="cartInfo">';
+if ($resultCart) {
+    if (mysqli_num_rows($resultCart) > 0) {
+        echo '<table border="1">';
+        echo '<tr><th>ID</th><th>Brand</th><th>Model</th><th>Size</th><th>Price</th></tr>';
+        
+        // Output data of each row
+        while ($row = mysqli_fetch_assoc($resultCart)) {
+            echo '<tr>';
+            echo '<td>' . $row['id'] . '</td>';
+            echo '<td>' . $row['brand'] . '</td>';
+            echo '<td>' . $row['model'] . '</td>';
+            echo '<td>' . $row['size'] . '</td>';
+            echo '<td>' . $row['price'] . '</td>';
+            echo '</tr>';
+        }
+        
+        echo '</table>';
+    } else {
+        echo "No records found in the cart";
+    }
+} else {
+    echo "Query execution failed for the cart";
+}
+echo '</div>';
+
+// Your existing code to display and insert data into tires table
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch_data']) && $_GET['fetch_data'] === 'true') {
+    echo '<div id="dynamicCartInfo">';
+    
     if (!$conn) {
         echo "Connection failed";
         die();
@@ -38,7 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch_data']) && $_GET[
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    // Display data
                     echo "<div>Brand: " . $row['brand'] . " ---- Model: " . $row['model'] . " ---- Size: " . $row['size'] . " ---- Price: " . $row['price'] . "</div>";
+
+                    // Insert into cart_tires table
+                    $insertQuery = "INSERT INTO cart_tires (brand, model, size, price) VALUES ('" . $row['brand'] . "', '" . $row['model'] . "', '" . $row['size'] . "', " . $row['price'] . ")";
+                    mysqli_query($conn, $insertQuery);
                 }
             } else {
                 echo "0 Records Found";
@@ -46,12 +83,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch_data']) && $_GET[
         } else {
             echo "Query execution failed";
         }
-
-        mysqli_close($conn);
     }
+
+    mysqli_close($conn);
     echo '</div>';
 } 
 ?>
+
+
 <button onclick="goToIndex()">Return to Index</button>
 <script>
     function goToIndex() {
