@@ -9,7 +9,21 @@
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Tires</title>
-  <script src="index.js"></script>
+  <!-- Your JavaScript code -->
+<script>
+        function addToCart() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Display the fetched data in the console (for demonstration)
+                    console.log(this.responseText);
+                    // You can process and display the data in your desired way here
+                }
+            };
+            xhttp.open("GET", "cart.php?addToCart=true", true);
+            xhttp.send();
+        }
+    </script>
 </head>
 
 <body>
@@ -395,22 +409,7 @@
   <!-- end info_section -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Your JavaScript code -->
-<script>
-function addToCart() {
-    // When the button is clicked, make an AJAX request to fetch data from cart.php
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Display the fetched data in the console (for demonstration)
-            console.log(this.responseText);
-            // You can process and display the data in your desired way here
-        }
-    };
-    xhttp.open("GET", "cart.php", true);
-    xhttp.send();
-}
-</script>
+
 
 
 </body>
