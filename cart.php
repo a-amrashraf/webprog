@@ -56,10 +56,25 @@ if (isset($_GET['id'])) {
     }
 }
 
+// Delete logic when delete button is clicked
+if (isset($_POST['delete_id'])) {
+    $deleteId = $_POST['delete_id'];
+
+    $deleteQuery = "DELETE FROM cart_tires WHERE id = ?";
+    $stmtDelete = mysqli_prepare($conn, $deleteQuery);
+    mysqli_stmt_bind_param($stmtDelete, 'i', $deleteId);
+    mysqli_stmt_execute($stmtDelete);
+    mysqli_stmt_close($stmtDelete);
+
+    // Redirect back to the previous page or wherever you want after deletion
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
+}
+
 // Rest of your existing code here
 // ...
 
-// For example, if you want to display the existing cart items:
+// Display existing cart items with delete buttons
 $sqlCart = "SELECT * FROM cart_tires";
 $resultCart = mysqli_query($conn, $sqlCart);
 
@@ -67,7 +82,7 @@ echo '<div id="cartInfo">';
 if ($resultCart) {
     if (mysqli_num_rows($resultCart) > 0) {
         echo '<table border="1">';
-        echo '<tr><th>ID</th><th>Brand</th><th>Model</th><th>Size</th><th>Price</th></tr>';
+        echo '<tr><th>ID</th><th>Brand</th><th>Model</th><th>Size</th><th>Price</th><th>Action</th></tr>';
         
         // Output data of each row
         while ($row = mysqli_fetch_assoc($resultCart)) {
@@ -77,6 +92,12 @@ if ($resultCart) {
             echo '<td>' . $row['model'] . '</td>';
             echo '<td>' . $row['size'] . '</td>';
             echo '<td>' . $row['price'] . '</td>';
+            echo '<td>';
+            echo '<form method="post">';
+            echo '<input type="hidden" name="delete_id" value="' . $row['id'] . '">';
+            echo '<button type="submit">Delete</button>';
+            echo '</form>';
+            echo '</td>';
             echo '</tr>';
         }
         
@@ -89,7 +110,6 @@ if ($resultCart) {
 }
 echo '</div>';
 ?>
-
 
 <button onclick="goToIndex()">Return to Index</button>
 <script>
