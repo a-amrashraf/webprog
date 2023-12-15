@@ -6,7 +6,20 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="Texx.css">
+   
+    <style>
+        .btn-block{
+            margin-top: 1rem;
+        }
+        .signup-btn {
+            float: right;
+            margin-top: 1rem;
+        }
+
+        .back-to-home {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,8 +38,11 @@
                         <input type="password" class="form-control" name="pwd" id="password" required>
                     </div>
                     <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
-                    <button type="button" class="btn btn-secondary btn-block mt-3"
+                    <!-- Sign Up button moved to the right -->
+                    <button type="button" class="btn btn-secondary mt-3 signup-btn"
                         onclick="location.href='signin.php';">Sign Up</button>
+                    <!-- Back to Home button below and wider -->
+                    <a href="index.html" class="btn btn-info mt-3 back-to-home">Back to Home</a>
                 </form>
                 <!-- Display the retrieved username -->
                 <?php
