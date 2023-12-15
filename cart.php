@@ -79,12 +79,14 @@ $sqlCart = "SELECT * FROM cart_tires";
 $resultCart = mysqli_query($conn, $sqlCart);
 
 echo '<div id="cartInfo">';
+$totalPrice = 0; // Initializing the total price variable
+
 if ($resultCart) {
     if (mysqli_num_rows($resultCart) > 0) {
         echo '<table border="1">';
         echo '<tr><th>ID</th><th>Brand</th><th>Model</th><th>Size</th><th>Price</th><th>Action</th></tr>';
         
-        // Output data of each row
+        // Output data of each row and calculate total price
         while ($row = mysqli_fetch_assoc($resultCart)) {
             echo '<tr>';
             echo '<td>' . $row['id'] . '</td>';
@@ -99,8 +101,14 @@ if ($resultCart) {
             echo '</form>';
             echo '</td>';
             echo '</tr>';
+
+            // Calculate the total price by adding up the prices from each row
+            $totalPrice += $row['price'];
         }
         
+        // Display the total price at the bottom of the table
+        echo '<tr><td colspan="4"><strong>Total:</strong></td><td>' . $totalPrice . '</td><td></td></tr>';
+
         echo '</table>';
     } else {
         echo "No records found in the cart";
@@ -110,7 +118,6 @@ if ($resultCart) {
 }
 echo '</div>';
 ?>
-
 <button onclick="goToIndex()">Return to Index</button>
 <script>
     function goToIndex() {
