@@ -26,7 +26,40 @@
         <?php
 include_once('connection.php');
 
-// Fetch data from cart_tires table
+// Check if the ID parameter is set in the URL
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // Fetch the data for the clicked ID from your database
+    $sql = "SELECT * FROM tires WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 'i', $id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+
+        // Insert the fetched data into the cart_tires table
+        $insertQuery = "INSERT INTO cart_tires (brand, model, size, price) VALUES (?, ?, ?, ?)";
+        $stmtInsert = mysqli_prepare($conn, $insertQuery);
+
+        mysqli_stmt_bind_param($stmtInsert, 'sssd', $row['brand'], $row['model'], $row['size'], $row['price']);
+        mysqli_stmt_execute($stmtInsert);
+        mysqli_stmt_close($stmtInsert);
+
+        // Redirect back to the previous page or wherever you want after insertion
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit();
+    } else {
+        echo "No data found for the selected ID";
+    }
+}
+
+// Rest of your existing code here
+// ...
+
+// For example, if you want to display the existing cart items:
 $sqlCart = "SELECT * FROM cart_tires";
 $resultCart = mysqli_query($conn, $sqlCart);
 
@@ -55,39 +88,6 @@ if ($resultCart) {
     echo "Query execution failed for the cart";
 }
 echo '</div>';
-
-// Your existing code to display and insert data into tires table
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch_data']) && $_GET['fetch_data'] === 'true') {
-    echo '<div id="dynamicCartInfo">';
-    
-    if (!$conn) {
-        echo "Connection failed";
-        die();
-    } else {
-        $sql = "SELECT brand, model, size, price FROM tires";
-        $result = mysqli_query($conn, $sql);
-        
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    // Display data
-                    echo "<div>Brand: " . $row['brand'] . " ---- Model: " . $row['model'] . " ---- Size: " . $row['size'] . " ---- Price: " . $row['price'] . "</div>";
-
-                    // Insert into cart_tires table
-                    $insertQuery = "INSERT INTO cart_tires (brand, model, size, price) VALUES ('" . $row['brand'] . "', '" . $row['model'] . "', '" . $row['size'] . "', " . $row['price'] . ")";
-                    mysqli_query($conn, $insertQuery);
-                }
-            } else {
-                echo "0 Records Found";
-            }
-        } else {
-            echo "Query execution failed";
-        }
-    }
-
-    mysqli_close($conn);
-    echo '</div>';
-} 
 ?>
 
 
