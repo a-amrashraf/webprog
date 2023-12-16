@@ -392,8 +392,14 @@
     </div>
   </section>
 
-  <!-- end info_section -->
+  
+  <script>
+    function runQuery(id) {
+    // Redirect to your PHP file with the clicked ID
+    window.location.href = 'cart.php?id=' + id;
+}
 
+</script>
 </body>
 
 </html>
