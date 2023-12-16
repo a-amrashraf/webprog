@@ -42,11 +42,11 @@
             <div class="box p-3">
               <div class="img-box">
                 <img src="https://be.fitandfix.com/media/catalog/product/cache/d529207e052fabc1dfaf9fd3b91343a7/b/o/bosch_car_battery_regular_2_1.jpg" alt="Bosch battery" width="270" height="270">
-                <button href="" class="add_cart_btn">
-                  <span>
-                    Add To Cart
-                  </span>
-                </button>
+                <button onclick="runQuery(19)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
               </div>
               <div class="detail-box">
                 <h5>
@@ -71,11 +71,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/d529207e052fabc1dfaf9fd3b91343a7/b/o/bosch_car_battery_agm.jpg" alt="bosch battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(20)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -100,11 +100,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/b/o/bosch_car_battery_regular_ns_1.jpg" alt="Bosch battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(21)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -129,11 +129,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/d529207e052fabc1dfaf9fd3b91343a7/c/h/chloride_platinum_car_battery_1.jpg" alt="chloride plat" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(22)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -158,11 +158,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shutterstock_1138114859_14_1.png" alt="Chloride battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(23)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -187,11 +187,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shutterstock_1138114859.png" alt="Chloride battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(24)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -216,11 +216,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/d529207e052fabc1dfaf9fd3b91343a7/f/i/fit_fix_acdelco_car_battery_din74_r_74ah_1_.jpg" alt="acdelco battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(25)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
               </a>
             </div>
             <div class="detail-box">
@@ -246,11 +246,11 @@
           <div class="box p-3">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/d529207e052fabc1dfaf9fd3b91343a7/a/c/acdelco_car_battery_6.jpg" alt="acdelco battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(26)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -275,11 +275,11 @@
           <div class="box p-3">
             <div class="img-box ">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/d529207e052fabc1dfaf9fd3b91343a7/f/i/fit_fix_acdelco_car_battery_ns40zl_r_35ah_1_.jpg" alt="acdelco battery" width="270" height="270">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(27)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
               </a>
             </div>
             <div class="detail-box">
