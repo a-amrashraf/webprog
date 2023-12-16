@@ -8,17 +8,66 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
    
     <style>
-        .btn-block{
-            margin-top: 1rem;
-        }
-        .signup-btn {
-            float: right;
-            margin-top: 1rem;
-        }
-
-        .back-to-home {
-            width: 100%;
-        }
+            :root {
+    --background: #1a1a2e;
+    --color: #ffffff;
+    --primary-color: #0f3460;
+}
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+    background: var(--background);
+    color: var(--color);
+    letter-spacing: 1px;
+    
+}
+       
+        button{
+    background-color: var(--primary-color);
+    color: var(--color);
+    display: block;
+    padding: 13px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    width: 50%;
+    cursor: pointer;
+    margin: 5px;
+    margin-bottom: 2rem;
+    transition: all 0.1s ease-in-out;
+    border: none;
+    
+}
+.btn{
+    background-color: var(--primary-color);
+    color: var(--color);
+    display: block;
+    padding: 13px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    margin: 5px;
+    margin-bottom: 2rem;
+   border: none;
+}
+.login-form {
+    margin-top: 3rem;
+}
+.user{
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.pass{
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
     </style>
 </head>
 
@@ -29,20 +78,18 @@
             <div class="col-md-6 offset-md-3">
                 <form class="login-form" method="post">
                     <h2 class="text-center mb-4">Login</h2>
-                    <div class="mb-3">
+                    <div class="user mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" name="user" id="username" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="pass mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" name="pwd" id="password" required>
                     </div>
                     <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
-                    <!-- Sign Up button moved to the right -->
-                    <button type="button" class="btn btn-secondary mt-3 signup-btn"
-                        onclick="location.href='signin.php';">Sign Up</button>
-                    <!-- Back to Home button below and wider -->
-                    <a href="index.html" class="btn btn-info mt-3 back-to-home">Back to Home</a>
+                    <button id="signin" class="btn btn-primary btn-md center-block" onclick="location.href='signin.php';">Sign Up</button>
+                    <button id="Forgot" class="btn btn-danger btn-md center-block" onclick="showAlert()">Forgot Password</button>
+                    <button class="btn btn-outline-primary back-to-home" onclick="location.href='index.html';">Back to Home</button>
                 </form>
                 <!-- Display the retrieved username -->
                 <?php
@@ -70,7 +117,19 @@
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script>
+                let clickCount = 0;
+
+function showAlert() {
+  clickCount++;
+  if (clickCount <= 3) {
+    alert("rakz ysta argook mthzrsh");
+  } else {
+    alert("shof mahl gherna ysta ashl");
+  }
+}
+        </script>
+        
 </body>
 </html>

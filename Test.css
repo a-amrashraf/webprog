@@ -57,7 +57,9 @@ padding-bottom:2vw ;
     align-items: center;
     justify-content: center;
     position: relative;
+    text-size-adjust: auto  ;
 }
+
 
 .whiteText {
     color: white;
