@@ -17,11 +17,13 @@
 
   <div class="info">
     <div class="blackRectangle">
+    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+    <a href="index.html" class="text">Home Page </a>
         <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
         <span class="text">19255</span>
         <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
             <a href="https://pan-marine.net/images/2020/06/18/pm-map.jpg" class="text">Our Stores </a>
-        </span>               
+                       
          <span class="icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
          <a href="cart.php" class="text">My Cart</a>
          <a href="log-in.php">

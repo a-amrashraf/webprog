@@ -9,6 +9,8 @@
 <body>
 <div class="info">
             <div class="blackRectangle">
+            <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+    <a href="index.html" class="text">Home Page </a>
                 <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
                 <span class="text">19255</span>
                 <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
@@ -108,7 +110,7 @@ if ($resultCart) {
         echo '<tr><th>ID</th><th>Brand</th><th>Price</th><th>Quantity</th><th>Action</th></tr>';
 
         while ($row = mysqli_fetch_assoc($resultCart)) {
-            echo '<tr>';
+            echo '<tr >';
             echo '<td>' . $row['id'] . '</td>';
             echo '<td>' . $row['description'] . '</td>';
             echo '<td>' . $row['price'] . '</td>';
@@ -148,7 +150,7 @@ if ($resultCart) {
 }
 echo '</div>';
 ?>
-<button onclick="goToIndex()">Return to Index</button>
+<button onclick="goToIndex()">Return to home page </button>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

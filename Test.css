@@ -29,6 +29,11 @@
         display: none; /* Hide the black rectangle */
 }
 }
+@media (max-width: 600px) {
+    .lowerpRectangle {
+        display: none; /* Hide the black rectangle */
+}
+}
 
 .name{
     color: brown;
@@ -124,6 +129,4 @@ padding-bottom:2vw ;
   width: auto;
   will-change: transform,opacity;
   z-index: 0;
-
 }
-
