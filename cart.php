@@ -54,6 +54,22 @@ if (isset($_GET['id'])) {
         echo "No data found for the selected ID";
     }
 }
+// Handle form submission for updating quantity
+if (isset($_POST['update_id']) && isset($_POST['quantity'])) {
+    $updateId = $_POST['update_id'];
+    $newQuantity = $_POST['quantity'];
+
+    // Update the quantity in the cart table
+    $updateQuery = "UPDATE cart SET quantity = ? WHERE id = ?";
+    $stmtUpdate = mysqli_prepare($conn, $updateQuery);
+    mysqli_stmt_bind_param($stmtUpdate, 'ii', $newQuantity, $updateId);
+    mysqli_stmt_execute($stmtUpdate);
+    mysqli_stmt_close($stmtUpdate);
+
+    // Redirect back to the cart page after updating quantity
+    header('Location: cart.php');
+    exit();
+}
 
 // Display existing cart items with quantity controls
 $sqlCart = "SELECT * FROM cart";
@@ -110,6 +126,7 @@ echo '</div>';
 <button onclick="goToIndex()">Return to Index</button>
 
 <script>
+    // JavaScript code for quantity adjustment (unchanged)
     document.addEventListener('DOMContentLoaded', function() {
         const quantityButtons = document.querySelectorAll('.quantity-button');
 
