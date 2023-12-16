@@ -54,24 +54,25 @@ if (isset($_GET['id'])) {
         echo "No data found for the selected ID";
     }
 }
-// Handle form submission for updating quantity
-if (isset($_POST['update_id']) && isset($_POST['quantity'])) {
-    $updateId = $_POST['update_id'];
-    $newQuantity = $_POST['quantity'];
+// ... previous code ...
 
-    // Update the quantity in the cart table
-    $updateQuery = "UPDATE cart SET quantity = ? WHERE id = ?";
-    $stmtUpdate = mysqli_prepare($conn, $updateQuery);
-    mysqli_stmt_bind_param($stmtUpdate, 'ii', $newQuantity, $updateId);
-    mysqli_stmt_execute($stmtUpdate);
-    mysqli_stmt_close($stmtUpdate);
+// Handle form submission for removing an item from cart
+if (isset($_POST['remove_id'])) {
+    $removeId = $_POST['remove_id'];
 
-    // Redirect back to the cart page after updating quantity
+    // Remove the item from the cart table
+    $deleteQuery = "DELETE FROM cart WHERE id = ?";
+    $stmtDelete = mysqli_prepare($conn, $deleteQuery);
+    mysqli_stmt_bind_param($stmtDelete, 'i', $removeId);
+    mysqli_stmt_execute($stmtDelete);
+    mysqli_stmt_close($stmtDelete);
+
+    // Redirect back to the cart page after removing the item
     header('Location: cart.php');
     exit();
 }
 
-// Display existing cart items with quantity controls
+// Display existing cart items with quantity controls and remove button
 $sqlCart = "SELECT * FROM cart";
 $resultCart = mysqli_query($conn, $sqlCart);
 
@@ -103,6 +104,10 @@ if ($resultCart) {
             echo '<button type="button" class="quantity-button" data-type="plus">+</button>';
 
             echo '<button type="submit">Update</button>';
+
+            // Remove button
+            echo '<button type="submit" name="remove_id" value="' . $row['id'] . '">Remove</button>';
+
             echo '</form>';
             echo '</td>';
             echo '</tr>';
@@ -122,7 +127,7 @@ if ($resultCart) {
     echo "Query execution failed for the cart";
 }
 echo '</div>';
-?>
+
 <button onclick="goToIndex()">Return to Index</button>
 
 <script>
