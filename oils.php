@@ -42,11 +42,11 @@
             <div class="box p-4">
               <div class="img-box">
                 <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shell_helix_ultra_motor_oil_-_5w-30_-_4_liters_1_.jpg" alt="shell oil" width="250" height="250">
-                <button href="" class="add_cart_btn">
-                  <span>
-                    Add To Cart
-                  </span>
-                </button>
+                <button onclick="runQuery(10)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
               </div>
               <div class="detail-box">
                 <h5>
@@ -396,6 +396,13 @@ Leichtlauf High Tech 5W-40 4L
   </section>
 
   <!-- end info_section -->
+  <script>
+    function runQuery(id) {
+    // Redirect to your PHP file with the clicked ID
+    window.location.href = 'cart.php?id=' + id;
+}
+
+</script>
 
 </body>
 

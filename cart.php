@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Fetch the data for the clicked ID from your database
-    $sql = "SELECT * FROM tires WHERE id = ?";
+    $sql = "SELECT * FROM product WHERE id = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, 'i', $id);
     mysqli_stmt_execute($stmt);
@@ -40,11 +40,10 @@ if (isset($_GET['id'])) {
     if ($result) {
         $row = mysqli_fetch_assoc($result);
 
-        // Insert the fetched data into the cart_tires table
-        $insertQuery = "INSERT INTO cart_tires (brand, model, size, price) VALUES (?, ?, ?, ?)";
+        // Insert the fetched data into the cart table
+        $insertQuery = "INSERT INTO cart (id, description, price, quantity) VALUES (?, ?, ?, 1) ON DUPLICATE KEY UPDATE quantity = quantity + 1";
         $stmtInsert = mysqli_prepare($conn, $insertQuery);
-
-        mysqli_stmt_bind_param($stmtInsert, 'sssd', $row['brand'], $row['model'], $row['size'], $row['price']);
+        mysqli_stmt_bind_param($stmtInsert, 'isd', $row['id'], $row['description'], $row['price']);
         mysqli_stmt_execute($stmtInsert);
         mysqli_stmt_close($stmtInsert);
 
@@ -56,26 +55,8 @@ if (isset($_GET['id'])) {
     }
 }
 
-// Delete logic when delete button is clicked
-if (isset($_POST['delete_id'])) {
-    $deleteId = $_POST['delete_id'];
-
-    $deleteQuery = "DELETE FROM cart_tires WHERE id = ?";
-    $stmtDelete = mysqli_prepare($conn, $deleteQuery);
-    mysqli_stmt_bind_param($stmtDelete, 'i', $deleteId);
-    mysqli_stmt_execute($stmtDelete);
-    mysqli_stmt_close($stmtDelete);
-
-    // Redirect back to the previous page or wherever you want after deletion
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    exit();
-}
-
-// Rest of your existing code here
-// ...
-
-// Display existing cart items with delete buttons
-$sqlCart = "SELECT * FROM cart_tires";
+// Display existing cart items with quantity controls
+$sqlCart = "SELECT * FROM cart";
 $resultCart = mysqli_query($conn, $sqlCart);
 
 echo '<div id="cartInfo">';
@@ -84,30 +65,38 @@ $totalPrice = 0; // Initializing the total price variable
 if ($resultCart) {
     if (mysqli_num_rows($resultCart) > 0) {
         echo '<table border="1">';
-        echo '<tr><th>ID</th><th>Brand</th><th>Model</th><th>Size</th><th>Price</th><th>Action</th></tr>';
-        
+        echo '<tr><th>ID</th><th>Brand</th><th>Price</th><th>Quantity</th><th>Action</th></tr>';
+
         // Output data of each row and calculate total price
         while ($row = mysqli_fetch_assoc($resultCart)) {
             echo '<tr>';
             echo '<td>' . $row['id'] . '</td>';
-            echo '<td>' . $row['brand'] . '</td>';
-            echo '<td>' . $row['model'] . '</td>';
-            echo '<td>' . $row['size'] . '</td>';
+            echo '<td>' . $row['description'] . '</td>';
             echo '<td>' . $row['price'] . '</td>';
             echo '<td>';
             echo '<form method="post">';
-            echo '<input type="hidden" name="delete_id" value="' . $row['id'] . '">';
-            echo '<button type="submit">Delete</button>';
+            echo '<input type="hidden" name="update_id" value="' . $row['id'] . '">';
+
+            // Minus button
+            echo '<button type="button" class="quantity-button" data-type="minus">-</button>';
+
+            // Quantity input field
+            echo '<input type="text" name="quantity" value="' . $row['quantity'] . '">';
+
+            // Plus button
+            echo '<button type="button" class="quantity-button" data-type="plus">+</button>';
+
+            echo '<button type="submit">Update</button>';
             echo '</form>';
             echo '</td>';
             echo '</tr>';
 
             // Calculate the total price by adding up the prices from each row
-            $totalPrice += $row['price'];
+            $totalPrice += $row['price'] * $row['quantity'];
         }
-        
+
         // Display the total price at the bottom of the table
-        echo '<tr><td colspan="4"><strong>Total:</strong></td><td>' . $totalPrice . '</td><td></td></tr>';
+        echo '<tr><td colspan="3"><strong>Total:</strong></td><td>' . $totalPrice . '</td><td></td></tr>';
 
         echo '</table>';
     } else {
@@ -119,6 +108,29 @@ if ($resultCart) {
 echo '</div>';
 ?>
 <button onclick="goToIndex()">Return to Index</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const quantityButtons = document.querySelectorAll('.quantity-button');
+
+        quantityButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const type = this.getAttribute('data-type');
+                const inputField = this.parentNode.querySelector('input[name="quantity"]');
+                let currentValue = parseInt(inputField.value);
+
+                if (type === 'minus' && currentValue > 1) {
+                    currentValue -= 1;
+                } else if (type === 'plus') {
+                    currentValue += 1;
+                }
+
+                inputField.value = currentValue;
+            });
+        });
+    });
+</script>
+
 <script>
     function goToIndex() {
         window.location.href = 'index.html';
