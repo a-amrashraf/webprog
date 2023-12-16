@@ -72,11 +72,11 @@
           <div class="box p-4">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shell_helix_hx6_motor_oil_-_15w-50_-_4_liters_1_.jpg" alt="shell oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(11)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -101,11 +101,11 @@
           <div class="box p-4">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shell_helix_ultra_motor_oil_-_5w-30_-_1_liter_1_.jpg" alt="shell oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(12)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -130,11 +130,11 @@
           <div class="box p-4">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/m/o/mobil_1_fsx1_motor_oil_-_5w-40_-_4_liters_1_.jpg" alt="mobil oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(13)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -159,11 +159,11 @@
           <div class="box p-4">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/m/o/mobil_1_x1_motor_oil_-_5w-30_-_4_liters_1_.jpg" alt="shell oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(14)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -188,11 +188,11 @@
           <div class="box p-4">
             <div class="img-box">
               <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/m/o/mobil_1_fsx1_motor_oil_-_5w-40_-_1_liter_1_.jpg" alt="shell oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(15)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -217,11 +217,11 @@
           <div class="box p-4">
             <div class="img-box">
               <img src="https://www.liqui-moly-eg.com/images/virtuemart/product/resized/2595_1619590698585_ctx-1_400x300.jpg" alt="liqui moly oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(16)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
               </a>
             </div>
             <div class="detail-box">
@@ -247,11 +247,11 @@ Leichtlauf High Tech 5W-40 4L
           <div class="box p-4">
             <div class="img-box">
               <img src="https://www.liqui-moly-eg.com/images/virtuemart/product/resized/9089_1620303910297_ctx-1_400x300.jpg" alt="liqui moly oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(17)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
             </div>
             <div class="detail-box">
               <h5>
@@ -276,11 +276,11 @@ Leichtlauf High Tech 5W-40 4L
           <div class="box p-4">
             <div class="img-box ">
               <img src="https://www.liqui-moly-eg.com/images/virtuemart/product/resized/3863_1619591551555_ctx-1_400x300.jpg" alt="liqui moly oil" width="250" height="250">
-              <button href="" class="add_cart_btn">
-                <span>
-                  Add To Cart
-                </span>
-              </button>
+              <button onclick="runQuery(18)" class="add_cart_btn">
+    <span>
+        Add To Cart
+    </span>
+</button>
               </a>
             </div>
             <div class="detail-box">
