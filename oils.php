@@ -32,284 +32,30 @@
     </div>
 </div>
   <!-- product selection -->
-  <section class="product_section">
-    <div class="container">
-      <div class="heading_container ">
-        <h2>
-          Our Products
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 ">
-            <div class="box p-4">
-              <div class="img-box">
-                <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shell_helix_ultra_motor_oil_-_5w-30_-_4_liters_1_.jpg" alt="shell oil" width="250" height="250">
-                <button onclick="runQuery(10)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Shell Helix Ultra Motor Oil - 5W-30 - 4 Liters
-                </h5>
-                <div class="product_info">
-                  <h5>
-                    <span>E£</span> 1300
-                  </h5>
-                  <div class="star_container">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-       
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shell_helix_hx6_motor_oil_-_15w-50_-_4_liters_1_.jpg" alt="shell oil" width="250" height="250">
-              <button onclick="runQuery(11)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Shell Helix HX6 Motor Oil - 15W-50 - 4 Liters
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 700
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i> 
-                 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/s/h/shell_helix_ultra_motor_oil_-_5w-30_-_1_liter_1_.jpg" alt="shell oil" width="250" height="250">
-              <button onclick="runQuery(12)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Shell Helix Ultra Motor Oil - 5W-30 - 1 Liter
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 400
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/m/o/mobil_1_fsx1_motor_oil_-_5w-40_-_4_liters_1_.jpg" alt="mobil oil" width="250" height="250">
-              <button onclick="runQuery(13)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Mobil 1 FSX1 Motor Oil - 5W-40 - 4 Liters
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 1250
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/m/o/mobil_1_x1_motor_oil_-_5w-30_-_4_liters_1_.jpg" alt="shell oil" width="250" height="250">
-              <button onclick="runQuery(14)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Mobil 1 X1 Motor Oil - 5W-30 - 4 Liters
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 1200
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://be.fitandfix.com/media/catalog/product/cache/97fabc546d2859ba137aa538c4251d72/m/o/mobil_1_fsx1_motor_oil_-_5w-40_-_1_liter_1_.jpg" alt="shell oil" width="250" height="250">
-              <button onclick="runQuery(15)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Mobil 1 FSX1 Motor Oil - 5W-40 - 1 Liter
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span>  350
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://www.liqui-moly-eg.com/images/virtuemart/product/resized/2595_1619590698585_ctx-1_400x300.jpg" alt="liqui moly oil" width="250" height="250">
-              <button onclick="runQuery(16)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-Leichtlauf High Tech 5W-40 4L
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 1600
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box">
-              <img src="https://www.liqui-moly-eg.com/images/virtuemart/product/resized/9089_1620303910297_ctx-1_400x300.jpg" alt="liqui moly oil" width="250" height="250">
-              <button onclick="runQuery(17)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Molygen New Gen 5W-30 4L
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 1700
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="box p-4">
-            <div class="img-box ">
-              <img src="https://www.liqui-moly-eg.com/images/virtuemart/product/resized/3863_1619591551555_ctx-1_400x300.jpg" alt="liqui moly oil" width="250" height="250">
-              <button onclick="runQuery(18)" class="add_cart_btn">
-    <span>
-        Add To Cart
-    </span>
-</button>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Leichtlauf High Tech 5W-40 1L
-              </h5>
-              <div class="product_info">
-                <h5>
-                  <span>E£</span> 450
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     <br>
-    </div>
-  </section>
+  <?php
+    include_once('connection.php');
+    // Fetch products
+    $sql = "SELECT id, image_url, description, price FROM product WHERE id > 9 AND id < 19";
+    $result = $conn->query($sql);
 
-  <!-- end product section -->
+    // Check if there are results
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="product">';
+            echo '<img src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
+            echo "<p>Product ID: " . $row["id"] . "</p>";
+            echo "<p>Name: " . $row["description"] . "</p>";
+            echo "<p>Price: $" . $row["price"] . "</p>";
+            // Add to Cart button
+            echo '<button class="add-to-cart-btn" onclick="addToCart(' . $row["id"] . ', \'' . $row["description"] . '\', ' . $row["price"] . ')">Add to Cart</button>';
+            echo '</div>';
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+    ?>
 
   <!-- info section -->
   <div class="lowerpRectangle">
@@ -398,13 +144,17 @@ Leichtlauf High Tech 5W-40 4L
   </section>
 
   <!-- end info_section -->
-  <script>
-    function runQuery(id) {
-    // Redirect to your PHP file with the clicked ID
-    window.location.href = 'cart.php?id=' + id;
-}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-</script>
+  <script>
+        function addToCart(productId, description,  price) {
+            // Redirect to cart.php and pass the product information as URL parameters
+            window.location.href = 'cart.php?id=' + productId +
+                                   '&description=' + encodeURIComponent(description) +
+                                   '&price=' + price;
+        }
+    </script>
+
 
 </body>
 
