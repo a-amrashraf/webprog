@@ -209,86 +209,56 @@ echo '</div>';
      
 <div class="lowerpRectangle">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="whitepText">
-            <h5>
-              <a href="" class="navbar-brand">
-                <span>
-                  Ghayarly
-                </span>
-              </a>
-            </h5>
-            <p>
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              All over Egypt
-            </p>
-            <p>
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              19255
-            </p>
-            <p>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              feedback@Ghayarly.com
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="whitepText" >
-            <h5>
-              Information
-            </h5>
-            <p>
-              All your car needs and services at your door step.
-           <br>
-              with Ghayarly you can order your car service online and we will come to you or visit us at the nearest shop.
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="whitepText">
-            <h5>
-              Useful Link
-            </h5>
-            <ul>
-              <li>
-                <a href="index.html">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a>
-                  About us
-                </a>
-              </li>
-           
-              <li>
-                <a>
-                  Why Us
-                </a>
-              </li>
-            
-            </ul>
-          </div>
-        </div>
-     
-            <div class="social_box">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
-              </a>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="whitepText">
+                    <h5>
+                        <a href="" class="navbar-brand">
+                            <span>Ghayarly</span>
+                        </a>
+                    </h5>
+                    <p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> All over Egypt
+                    </p>
+                    <p>
+                        <i class="fa fa-phone" aria-hidden="true"></i> 19255
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> feedback@Ghayarly.com
+                    </p>
+                </div>
             </div>
-          </div>
+            <div class="col-lg-4">
+                <div class="whitepText">
+                    <h5>Information</h5>
+                    <p>
+                        All your car needs and services at your doorstep. <br>
+                        With Ghayarly, you can order your car service online, and we will come to you or visit us at the nearest shop.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="whitepText">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a>About us</a></li>
+                        <li><a>Why Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <div class="social_box">
+                    <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+</div>
+
    
 
 <script>

@@ -74,23 +74,47 @@ padding-bottom:2vw ;
 .greyText {
     color: grey;
 }
-.lowerpRectangle
-{
+.lowerRectangle {
     background-color: black;
     width: 100%;
-    height: 15vw;
+    height: 20vw; /* Increase the height to 20vw or adjust as needed */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
 }
 
-.whitepText {
+.whiteText {
     color: white;
-    font-size: 15px; 
+    font-size: 20px; /* Adjust font size as needed */
 }
 
-.row{
+.greyText {
+    color: grey;
+}
+
+.lowerpRectangle {
+    background-color: black;
+    width: 100%;
+    height: 20vw; /* Default height for larger screens */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .lowerpRectangle {
+        height: 90vw; /* Adjusted height for smaller screens */
+    }
+}
+.whitepText {
+    color: white;
+    font-size: 15px; /* Adjust font size as needed */
+}
+
+.row {
     padding-bottom: 10px;
     margin-bottom: 10px;
     padding-top: 10px;
