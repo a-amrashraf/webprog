@@ -16,6 +16,14 @@
             display: block;
             margin-bottom: 5px;
         }
+        .add-to-cart-btn {
+            background-color: #3498db;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +46,8 @@ if ($result->num_rows > 0) {
         echo "<p>Name: " . $row["product_name"] . "</p>";
         echo "<p>Category: " . $row["category"] . "</p>";
         echo "<p>Price: $" . $row["price"] . "</p>";
+        // Add to Cart button
+        echo '<button class="add-to-cart-btn" onclick="addToCart(' . $row["id"] . ')">Add to Cart</button>';
         echo '</div>';
     }
 } else {
@@ -47,7 +57,14 @@ $conn->close();
 ?>
     </div>
     <script>
-        // Any JavaScript functionality can be added here
+        function addToCart(productId) {
+            // Perform actions to add the product with productId to the cart
+            // You can use JavaScript or make an AJAX call to add the product to the cart
+            // For example, you can send a request to a server-side script handling the cart functionality
+            // and pass the productId as a parameter to add it to the cart.
+            // This function is a placeholder and should be adapted to your cart implementation.
+            console.log("Product added to cart: " + productId);
+        }
     </script>
 </body>
 </html>
