@@ -33,29 +33,29 @@
 </div>
   <!-- product selection -->
   <?php
-    include_once('connection.php');
-    // Fetch products
-    $sql = "SELECT id, image_url, description, price FROM product WHERE id > 18 AND id < 28";
-    $result = $conn->query($sql);
+include_once('connection.php');
+// Fetch products
+$sql = "SELECT id, image_url, description, price FROM product WHERE id > 18 AND id < 28";
+$result = $conn->query($sql);
 
-    // Check if there are results
-    if ($result->num_rows > 0) {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="product">';
-            echo '<img src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
-            echo "<p>Product ID: " . $row["id"] . "</p>";
-            echo "<p>Name: " . $row["description"] . "</p>";
-            echo "<p>Price: $" . $row["price"] . "</p>";
-            // Add to Cart button
-            echo '<button class="add-to-cart-btn" onclick="addToCart(' . $row["id"] . ', \'' . $row["description"] . '\', ' . $row["price"] . ')">Add to Cart</button>';
-            echo '</div>';
-        }
-    } else {
-        echo "0 results";
+// Check if there are results
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while ($row = $result->fetch_assoc()) {
+        echo '<div class="product">';
+        echo '<img src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
+        echo "<p>Product ID: " . $row["id"] . "</p>";
+        echo "<p>Name: " . $row["description"] . "</p>";
+        echo "<p>Price: $" . $row["price"] . "</p>";
+        // Add to Cart button with data attributes
+        echo '<button class="add-to-cart-btn" data-id="' . $row["id"] . '" data-description="' . $row["description"] . '" data-price="' . $row["price"] . '">Add to Cart</button>';
+        echo '</div>';
     }
-    $conn->close();
-    ?>
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
   <!-- end product section -->
 
   <!-- info section -->
@@ -145,16 +145,24 @@
   </section>
 
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
   <script>
-        function addToCart(productId, description,  price) {
-            // Redirect to cart.php and pass the product information as URL parameters
-            window.location.href = 'cart.php?id=' + productId +
-                                   '&description=' + encodeURIComponent(description) +
-                                   '&price=' + price;
-        }
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-id');
+                const description = this.getAttribute('data-description');
+                const price = this.getAttribute('data-price');
+
+                // Redirect to cart.php and pass the product information as URL parameters
+                window.location.href = 'cart.php?id=' + productId +
+                                       '&description=' + encodeURIComponent(description) +
+                                       '&price=' + price;
+            });
+        });
+    });
+</script>
 
 </body>
 

@@ -171,41 +171,60 @@ echo '</div>';
 </div>
 
 <h2>YOU MIGHT ALSO NEED</h2>
-<div class="container">
+<<div class="container">
   <div class="row">
     <div class="col-lg-4">
       <div class="box p-3">
         <div class="img-box">
-        <?php
-    include_once('connection.php');
-    // Fetch products
-    $sql = "SELECT id, image_url, description, price FROM product WHERE id > 36 AND id < 40";
-    $result = $conn->query($sql);
-
-    // Check if there are results
-    if ($result->num_rows > 0) {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="product">';
-            echo '<img src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
-            echo "<p>Product ID: " . $row["id"] . "</p>";
-            echo "<p>Name: " . $row["description"] . "</p>";
-            echo "<p>Price: $" . $row["price"] . "</p>";
-            // Add to Cart button
-            echo '<button class="add-to-cart-btn" onclick="addToCart(' . $row["id"] . ', \'' . $row["description"] . '\', ' . $row["price"] . ')">Add to Cart</button>';
-            echo '</div>';
-        }
-    } else {
-        echo "0 results";
-    }
-    $conn->close();
-    ?>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrFkSGN2ANO36MV_xd2xKHzmxT1TyZ698K9Q&usqp=CAU" alt="tire repair">
+          <button onclick="runQuery(34)" class="add_cart_btn">
+            <span>Add To Cart</span>
+          </button>
+        </div>
+        <div class="detail-box">
+          <h5>Tire Repair - service, Runflat "1 tire"</h5>
+          <div class="product_info">
+            <h5><span>E£</span> 120</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="box p-3">
+        <div class="img-box">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrFkSGN2ANO36MV_xd2xKHzmxT1TyZ698K9Q&usqp=CAU" alt="tire repair">
+          <button onclick="runQuery(35)" class="add_cart_btn">
+            <span>Add To Cart</span>
+          </button>
+        </div>
+        <div class="detail-box">
+          <h5>Tire repair - service, Regular "1 tire"</h5>
+          <div class="product_info">
+            <h5><span>E£</span> 100</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="box p-3">
+        <div class="img-box ">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqsjXCeRCN04HxKqn1ydihAHgXdgKDFYgp6A&usqp=CAU" alt="car detailing">
+          <button onclick="runQuery(36)" class="add_cart_btn">
+            <span>Add To Cart</span>
+          </button>
+        </div>
+        <div class="detail-box">
+          <h5>Car detailing - service</h5>
+          <div class="product_info">
+            <h5><span>E£</span> 200</h5>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-   </div>
-</div>
-</div>
 </div>
 
+     
 <div class="lowerpRectangle">
     <div class="container">
         <div class="row">
