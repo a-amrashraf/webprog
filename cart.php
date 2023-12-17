@@ -25,6 +25,18 @@
         </div>
          
         <h1 class="name">MY CART</h2><br>
+        <div class="container">
+    <h2>Products</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="text-left">ID</th>
+                <th class="text-center" style="width:35%;">Product Name</th>
+                <th style="text-align:center; width:120px;">Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
         <?php
 include_once('connection.php');
 
@@ -106,15 +118,15 @@ $totalPrice = 0; // Initializing the total price variable
 // Display existing cart items with quantity controls and delete option
 if ($resultCart) {
     if (mysqli_num_rows($resultCart) > 0) {
-        echo '<table border="1">';
-        echo '<tr><th>ID</th><th>Brand</th><th>Price</th><th>Quantity</th><th>Action</th></tr>';
+        echo '<table >';
+        
 
         while ($row = mysqli_fetch_assoc($resultCart)) {
             echo '<tr >';
-            echo '<td>' . $row['id'] . '</td>';
-            echo '<td>' . $row['description'] . '</td>';
-            echo '<td>' . $row['price'] . '</td>';
-            echo '<td>';
+            echo '<th style="padding-left: 10px; padding-right: 110px;">' . $row['id'] . '</th>';
+            echo '<th style=" text-align:center; padding-left:90px; padding-right:100px;">' . $row['description'] . '</th>';
+            echo '<th style="padding-right:80px;">' . $row['price'] . '</th>';
+            echo '<th>';
             echo '<form method="post">';
             echo '<input type="hidden" name="delete_id" value="' . $row['id'] . '">';
         
@@ -122,25 +134,23 @@ if ($resultCart) {
             echo '<button type="button" class="quantity-button" data-type="minus">-</button>';
         
             // Quantity input field
-            echo '<input type="text" name="quantity" value="' . $row['quantity'] . '">';
+            echo '<input type="text" style="width:100px;" name="quantity" value="' . $row['quantity'] . '">';
         
             // Plus button
             echo '<button type="button" class="quantity-button" data-type="plus">+</button>';
         
-            echo '<button type="submit" name="update_id" value="' . $row['id'] . '">Update</button>';
+            echo '<button type="submit" class="upd-button" name="update_id" value="' . $row['id'] . '">Update</button>';
         
             // Delete button
             echo '<button type="button" class="delete-button" data-id="' . $row['id'] . '">Delete</button>';
             echo '</form>';
-            echo '</td>';
+            echo '</th>';
             echo '</tr>';
         
             $totalPrice += $row['price'] * $row['quantity'];
         }
-        
-
-        echo '<tr><td colspan="3"><strong>Total:</strong></td><td>' . $totalPrice . '</td><td></td></tr>';
-
+    
+        echo '<tr><th><strong>Total:</strong></th><th style="font-size:20px;">' . $totalPrice . '</th><th></th></tr>';
         echo '</table>';
     } else {
         echo "No items in the cart";
@@ -150,7 +160,15 @@ if ($resultCart) {
 }
 echo '</div>';
 ?>
-<button onclick="goToIndex()">Continue Shopping </button>
+    </tbody>
+    </table>
+</div>
+
+<div class="container">
+    
+<button class="cart_btn" onclick="goToIndex()">Continue Shopping </button>
+<button class="cart_btn" onclick="checkout()">CheckOut </button>
+</div>
 
 <h2>YOU MIGHT ALSO NEED</h2>
 <<div class="container">
@@ -307,6 +325,11 @@ echo '</div>';
     function goToIndex() {
         window.location.href = 'index.html';
     }
+    function checkout() {
+        
+        alert("your order is confirmed.  Thank you for shopping with us");
+    
+}
     function runQuery(id) {
     // Redirect to your PHP file with the clicked ID
     window.location.href = 'cart.php?id=' + id;

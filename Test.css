@@ -154,3 +154,43 @@ padding-bottom:2vw ;
   will-change: transform,opacity;
   z-index: 0;
 }
+
+.cart_btn{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #000a47;
+    line-height: 1.15;
+    font-size: 16px;
+}
+.quantity-button{
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    background-color: #14227e;
+    color: #fff;
+}
+
+.delete-button{
+    display: inline-block;
+    width: 70px;
+    height: 35px;
+    text-align: center;
+    outline: none;
+    background-color: #d3eaf0;
+    color: black;
+}
+.upd-button{
+    display: inline-block;
+    width: 70px;
+    height: 35px;
+    text-align: center;
+    outline: none;
+    background-color: #d3eaf0;
+    color: black;
+}
