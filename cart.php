@@ -142,7 +142,7 @@ if ($resultCart) {
             echo '<button type="submit" class="upd-button" name="update_id" value="' . $row['id'] . '">Update</button>';
         
             // Delete button
-            echo '<button type="button" class="delete-button" data-id="' . $row['id'] . '">Delete</button>';
+            echo '<button type="button" class="delete-button" data-id="' . $row['id'] . '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
             echo '</form>';
             echo '</th>';
             echo '</tr>';
