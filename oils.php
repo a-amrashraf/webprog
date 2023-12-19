@@ -43,12 +43,12 @@ if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
         echo '<div class="product">';
-        echo '<img src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
+        echo '<img style="width:250px; height:250px;" src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
         echo "<p>Product ID: " . $row["id"] . "</p>";
         echo "<p>Name: " . $row["description"] . "</p>";
         echo "<p>Price: $" . $row["price"] . "</p>";
         // Add to Cart button with data attributes
-        echo '<button class="add-to-cart-btn" data-id="' . $row["id"] . '" data-description="' . $row["description"] . '" data-price="' . $row["price"] . '">Add to Cart</button>';
+        echo '<button class="add_cart_btn" data-id="' . $row["id"] . '" data-description="' . $row["description"] . '" data-price="' . $row["price"] . '">Add to Cart</button>';
         echo '</div>';
     }
 } else {
@@ -145,7 +145,7 @@ $conn->close();
   <!-- end info_section -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const addToCartButtons = document.querySelectorAll('.add_cart_btn');
 
         addToCartButtons.forEach(function(button) {
             button.addEventListener('click', function() {

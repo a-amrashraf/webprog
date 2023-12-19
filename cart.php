@@ -123,8 +123,8 @@ if ($resultCart) {
 
         while ($row = mysqli_fetch_assoc($resultCart)) {
             echo '<tr >';
-            echo '<th style="padding-left: 10px; padding-right: 110px;">' . $row['id'] . '</th>';
-            echo '<th style=" text-align:center; padding-left:90px; padding-right:100px;">' . $row['description'] . '</th>';
+            echo '<th style="padding-left: 10px; padding-right: 95px;">' . $row['id'] . '</th>';
+            echo '<th style=" text-align:center; padding-left:90px; padding-right:55px;">' . $row['description'] . '</th>';
             echo '<th style="padding-right:80px;">' . $row['price'] . '</th>';
             echo '<th>';
             echo '<form method="post">';
