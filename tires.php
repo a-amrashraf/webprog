@@ -43,13 +43,15 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
-        echo '<div class="product">';
-        echo '<img style="width:250px; height:230px;" src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
+      echo '<figure class="figure" style="margin: 27px; padding-left: 25px;">';
+        echo '<img style="width:260px; height:230px;" src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
+        echo '<figcaption style="padding-top:10px;">';
         echo "<p>Product ID: " . $row["id"] . "</p>";
         echo "<p>Name: " . $row["description"] . "</p>";
         echo "<p>Price: $" . $row["price"] . "</p>";
-        // Add to Cart button with data attributes
+        echo '</figcaption>';
         echo '<button class="add_cart_btn" data-id="' . $row["id"] . '" data-description="' . $row["description"] . '" data-price="' . $row["price"] . '">Add to Cart</button>';
+        echo '</figure>';
         echo '</div>';
     }
 } else {
