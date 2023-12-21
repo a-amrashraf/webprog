@@ -88,7 +88,7 @@ body {
                     </div>
                     <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
                     <button id="signin" class="btn btn-primary btn-md center-block" onclick="location.href='signin.php';">Sign Up</button>
-                    <button id="Forgot" class="btn btn-danger btn-md center-block" onclick="showAlert()">Forgot Password</button>
+                    <button id="Forgot" class="btn btn-danger btn-md center-block" onclick="redirectToAdmin()">Admin Login</button>
                     <button class="btn btn-outline-primary back-to-home" onclick="location.href='index.html';">Back to Home</button>
                 </form>
                 <!-- Display the retrieved username -->
@@ -119,16 +119,10 @@ body {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script>
-                let clickCount = 0;
-
-function showAlert() {
-  clickCount++;
-  if (clickCount <= 3) {
-    alert("rakz ysta argook mthzrsh");
-  } else {
-    alert("shof mahl gherna ysta ashl");
-  }
-}
+               function redirectToAdmin() {
+        // Redirect to the admin.php page
+        window.location.href = 'admin.php';
+    }
         </script>
         
 </body>
