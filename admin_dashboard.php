@@ -3,71 +3,77 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <style>
-        /* Hide the form by default */
-        #productForm {
-            display: none;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Welcome to the Admin Dashboard</h1>
 
-    <!-- Button to toggle the form visibility -->
+    <!-- Add Button to Toggle Form Visibility -->
     <button onclick="toggleForm()">Add Product</button>
 
-    <!-- Form to add rows to the product table -->
-    <form id="productForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id"><br><br>
-
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required><br><br>
-
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required><br><br>
-
-        <label for="image_url">Image URL:</label>
-        <input type="text" id="image_url" name="image_url" required><br><br>
-
-        <input type="submit" value="Add to Table">
+    <!-- Form to add rows to the product table (Initially Hidden) -->
+    <form id="addForm" style="display: none;" method="POST">
+        <!-- Your input fields for adding products -->
     </form>
 
+    <!-- Show Product Table -->
+    <table border="1">
+        <!-- Table headers -->
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image URL</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        // Display product table rows
+        include_once('connection.php');
+        $sql = "SELECT * FROM product";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id"] . "</td>";
+                echo "<td>" . $row["description"] . "</td>";
+                echo "<td>" . $row["price"] . "</td>";
+                echo "<td>" . $row["image_url"] . "</td>";
+                echo '<td><button onclick="deleteProduct(' . $row["id"] . ')">Delete</button></td>';
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='5'>No products found</td></tr>";
+        }
+        $conn->close();
+        ?>
+    </table>
+
     <script>
+        // Function to toggle the visibility of the add form
         function toggleForm() {
-            var form = document.getElementById("productForm");
-            if (form.style.display === "none") {
-                form.style.display = "block";
-            } else {
-                form.style.display = "none";
+            var form = document.getElementById("addForm");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        // Function to delete a product using AJAX
+        function deleteProduct(id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'delete_product.php',
+                    data: { delete_id: id },
+                    success: function(response) {
+                        if (response === 'success') {
+                            // Reload the current page after successful deletion
+                            location.reload();
+                        } else {
+                            alert('Error deleting product.');
+                        }
+                    }
+                });
             }
         }
     </script>
-
-    <?php
-    session_start();
-    include_once('connection.php'); // Assuming you have a file to handle the database connection
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Retrieve form data
-        $id = $_POST['id']; // If using auto-increment, this may be omitted
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $image_url = $_POST['image_url'];
-
-        // SQL query to insert data into the product table
-        $sql = "INSERT INTO product (id, description, price, image_url) VALUES ('$id', '$description', '$price', '$image_url')";
-        
-        if ($conn->query($sql) === TRUE) {
-            // Redirect back to admin dashboard after successful insertion
-            header('Location: admin_dashboard.php');
-            exit();
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-
-    $conn->close();
-    ?>
 </body>
 </html>
