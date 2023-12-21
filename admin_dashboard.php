@@ -3,12 +3,21 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
+    <style>
+        /* Hide the form by default */
+        #productForm {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the Admin Dashboard</h1>
 
+    <!-- Button to toggle the form visibility -->
+    <button onclick="toggleForm()">Add Product</button>
+
     <!-- Form to add rows to the product table -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+    <form id="productForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         <label for="id">ID:</label>
         <input type="text" id="id" name="id"><br><br>
 
@@ -23,6 +32,17 @@
 
         <input type="submit" value="Add to Table">
     </form>
+
+    <script>
+        function toggleForm() {
+            var form = document.getElementById("productForm");
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+    </script>
 
     <?php
     session_start();
