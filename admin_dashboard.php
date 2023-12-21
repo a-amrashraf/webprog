@@ -12,8 +12,20 @@
     <button onclick="toggleForm()">Add Product</button>
 
     <!-- Form to add rows to the product table (Initially Hidden) -->
-    <form id="addForm" style="display: none;" method="POST">
-        <!-- Your input fields for adding products -->
+    <form id="addForm" style="display: none;" method="POST" action="add_product.php">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id"><br><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br><br>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" required><br><br>
+
+        <label for="image_url">Image URL:</label>
+        <input type="text" id="image_url" name="image_url" required><br><br>
+
+        <input type="submit" value="Add to Table">
     </form>
 
     <!-- Show Product Table -->
@@ -26,8 +38,8 @@
             <th>Image URL</th>
             <th>Action</th>
         </tr>
+        <!-- PHP code to display products -->
         <?php
-        // Display product table rows
         include_once('connection.php');
         $sql = "SELECT * FROM product";
         $result = $conn->query($sql);
@@ -50,13 +62,11 @@
     </table>
 
     <script>
-        // Function to toggle the visibility of the add form
         function toggleForm() {
             var form = document.getElementById("addForm");
             form.style.display = form.style.display === "none" ? "block" : "none";
         }
 
-        // Function to delete a product using AJAX
         function deleteProduct(id) {
             if (confirm('Are you sure you want to delete this item?')) {
                 $.ajax({
@@ -65,7 +75,6 @@
                     data: { delete_id: id },
                     success: function(response) {
                         if (response === 'success') {
-                            // Reload the current page after successful deletion
                             location.reload();
                         } else {
                             alert('Error deleting product.');
