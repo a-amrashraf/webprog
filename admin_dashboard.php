@@ -9,6 +9,9 @@
 
     <!-- Form to add rows to the product table -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id"><br><br>
+
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" required><br><br>
 
@@ -27,12 +30,13 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve form data
+        $id = $_POST['id']; // If using auto-increment, this may be omitted
         $description = $_POST['description'];
         $price = $_POST['price'];
         $image_url = $_POST['image_url'];
 
         // SQL query to insert data into the product table
-        $sql = "INSERT INTO product (description, price, image_url) VALUES ('$description', '$price', '$image_url')";
+        $sql = "INSERT INTO product (id, description, price, image_url) VALUES ('$id', '$description', '$price', '$image_url')";
         
         if ($conn->query($sql) === TRUE) {
             // Redirect back to admin dashboard after successful insertion
