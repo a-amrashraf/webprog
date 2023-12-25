@@ -124,25 +124,26 @@ if ($resultCart) {
         while ($row = mysqli_fetch_assoc($resultCart)) {
             echo '<tr >';
             echo '<th style="padding-left: 10px; padding-right: 95px;">' . $row['id'] . '</th>';
-            echo '<th style=" text-align:center; padding-left:90px; padding-right:55px;">' . $row['description'] . '</th>';
-            echo '<th style="padding-right:80px;">' . $row['price'] . '</th>';
-            echo '<th>';
+            echo '<th style=" text-align:center; padding-left:85px; padding-right:50px; min-width:465px; position:absoulte; ">' . $row['description'] . '</th>';
+            echo '<th style="padding-right:80px; ">' . $row['price'] . '</th>';
+            echo '<th style="text-align:right;">';
+            
             echo '<form method="post">';
-            echo '<input type="hidden" name="delete_id" value="' . $row['id'] . '">';
+            echo '<input  type="hidden" name="delete_id" value="' . $row['id'] . '">';
         
             // Minus button
-            echo '<button type="button" class="quantity-button" data-type="minus">-</button>';
+            echo '<button style="" type="button" class="quantity-button" data-type="minus">-</button>';
         
             // Quantity input field
-            echo '<input type="text" style="width:100px;" name="quantity" value="' . $row['quantity'] . '">';
+            echo '<input  type="text" style="width:80px; text-align:center; " name="quantity" value="' . $row['quantity'] . '">';
         
             // Plus button
-            echo '<button type="button" class="quantity-button" data-type="plus">+</button>';
+            echo '<button style="" type="button" class="quantity-button" data-type="plus">+</button>';
         
-            echo '<button type="submit" class="upd-button" name="update_id" value="' . $row['id'] . '">Update</button>';
+            echo '<button style="" type="submit" class="upd-button" name="update_id" value="' . $row['id'] . '">Update</button>';
         
             // Delete button
-            echo '<button type="button" class="delete-button" data-id="' . $row['id'] . '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+            echo '<button style="" type="button" class="delete-button" data-id="' . $row['id'] . '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
             echo '</form>';
             echo '</th>';
             echo '</tr>';
