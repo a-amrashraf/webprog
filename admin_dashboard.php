@@ -4,32 +4,54 @@
 <head>
     <title>Admin Dashboard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="Test.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+    <style>
+        body{
+        font-family:sans-serif;
+        font-size: 17px;
+    }
+    </style>
 </head>
-<body>
-    <h1>Welcome to the Admin Dashboard</h1>
+<body >
+    <h1 style="text-align:center;">Welcome to the Admin Dashboard</h1>
 
     <!-- Add Button to Toggle Form Visibility -->
-    <button onclick="toggleForm()">Add Product</button>
+    <button  onclick="toggleForm()">Add Product</button>
 
     <!-- Form to add rows to the product table (Initially Hidden) -->
+    
+    <div class="container">
+        <div class="row">
+       <div class="col-md-6 offset-md-3">
     <form id="addForm" style="display: none;" method="POST" action="add_product.php">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id"><br><br>
-
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required><br><br>
-
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required><br><br>
-
-        <label for="image_url">Image URL:</label>
-        <input type="text" id="image_url" name="image_url" required><br><br>
-
-        <input type="submit" value="Add to Table">
+    <div class="user mb-3">
+        <label for="id" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="id" name="id"><br><br>
+    </div>
+    <div class="user mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <input type="text" class="form-control" id="description" name="description" required><br><br>
+    </div>
+    <div class="user mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="text" class="form-control" id="price" name="price" required><br><br>
+    </div>
+    <div class="user mb-3">
+        <label for="image_url" class="form-label">Image URL:</label>
+        <input type="text" class="form-control" id="image_url" name="image_url" required><br><br>
+    </div>
+        <input class="add-tab-button" type="submit" value="Add to Table">
     </form>
+    </div>
+    </div>
+    </div>
+    <a href="index.html"><button>Home Page</button></a>
 
    <!-- Show Product Table -->
-   <table border="1">
+   <table class="table" border="1">
        <!-- Table headers -->
        <tr>
            <th>ID</th>
@@ -50,9 +72,9 @@
                echo "<tr id='row_" . $row["id"] . "'>";
                echo "<td>" . $row["id"] . "</td>";
                echo "<td>" . $row["description"] . "</td>";
-               echo "<td>" . $row["price"] . "</td>";
-               echo "<td>" . $row["image_url"] . "</td>";
-               echo '<td><button onclick="deleteProduct(' . $row["id"] . ')">Delete</button></td>';
+               echo "<td >" . $row["price"] . "</td>";
+               echo "<td >" . $row["image_url"] . "</td>";
+               echo '<td><button style="background-color:red;" onclick="deleteProduct(' . $row["id"] . ')">Delete</button></td>';
                echo '<td><button onclick="editProduct(' . $row["id"] . ')">Edit</button></td>';
                echo "</tr>";
            }

@@ -196,3 +196,29 @@ padding-bottom:2vw ;
     background-color: #d3eaf0;
     color: black;
 }
+button{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #1c2fa9;
+    line-height: 1.15;
+    font-size: 16px;
+}
+.add-tab-button{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #1c2fa9;
+    line-height: 1.15;
+    font-size: 16px;
+}
