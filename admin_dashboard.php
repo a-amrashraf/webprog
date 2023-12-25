@@ -28,22 +28,24 @@
        <div class="col-md-6 offset-md-3">
     <form id="addForm" style="display: none;" method="POST" action="add_product.php">
     <div class="user mb-3">
-        <label for="id" class="form-label">ID:</label>
+        <label for="id" style="font-size:17px;" class="form-label">ID:</label>
         <input type="text" class="form-control" id="id" name="id"><br><br>
     </div>
     <div class="user mb-3">
-        <label for="description" class="form-label">Description:</label>
+        <label for="description" style="font-size:17px;" class="form-label">Description:</label>
         <input type="text" class="form-control" id="description" name="description" required><br><br>
     </div>
     <div class="user mb-3">
-        <label for="price" class="form-label">Price:</label>
+        <label for="price" style="font-size:17px;" class="form-label">Price:</label>
         <input type="text" class="form-control" id="price" name="price" required><br><br>
     </div>
     <div class="user mb-3">
-        <label for="image_url" class="form-label">Image URL:</label>
+        <label for="image_url" style="font-size:17px;" class="form-label">Image URL:</label>
         <input type="text" class="form-control" id="image_url" name="image_url" required><br><br>
     </div>
         <input class="add-tab-button" type="submit" value="Add to Table">
+        <p style="margain:5px;">NOTE</p>
+    <p>Every item has a certain range of Ids <br>  Tires: 100 < T < 200 <br> Oils: 200 < O < 300 <br> Batteries: 300 < B < 400 <br> Services: 400 < S < 500 <br> Accessories: 500 < A < 600 </p>
     </form>
     </div>
     </div>
