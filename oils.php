@@ -35,7 +35,7 @@
   <?php
 include_once('connection.php');
 // Fetch products
-$sql = "SELECT id, image_url, description, price FROM product WHERE id > 20 AND id < 41";
+$sql = "SELECT id, image_url, description, price FROM product WHERE id > 200 AND id < 300";
 $result = $conn->query($sql);
 
 // Check if there are results
