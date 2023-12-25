@@ -29,50 +29,50 @@
     </form>
 
    <!-- Show Product Table -->
-<table border="1">
-    <!-- Table headers -->
-    <tr>
-        <th>ID</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Image URL</th>
-        <th>Action</th>
-        <th>Edit</th>
-    </tr>
-    <!-- PHP code to display products -->
-    <?php
-    include_once('connection.php');
-    $sql = "SELECT * FROM product";
-    $result = $conn->query($sql);
+   <table border="1">
+       <!-- Table headers -->
+       <tr>
+           <th>ID</th>
+           <th>Description</th>
+           <th>Price</th>
+           <th>Image URL</th>
+           <th>Action</th>
+           <th>Edit</th>
+       </tr>
+       <!-- PHP code to display products -->
+       <?php
+       include_once('connection.php');
+       $sql = "SELECT * FROM product";
+       $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["id"] . "</td>";
-            echo "<td>" . $row["description"] . "</td>";
-            echo "<td>" . $row["price"] . "</td>";
-            echo "<td>" . $row["image_url"] . "</td>";
-            echo '<td><button onclick="deleteProduct(' . $row["id"] . ')">Delete</button></td>';
-            echo '<td><button onclick="editProduct(' . $row["id"] . ')">Edit</button></td>';
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='6'>No products found</td></tr>";
-    }
-    $conn->close();
-    ?>
-</table>
+       if ($result->num_rows > 0) {
+           while ($row = $result->fetch_assoc()) {
+               echo "<tr id='row_" . $row["id"] . "'>";
+               echo "<td>" . $row["id"] . "</td>";
+               echo "<td>" . $row["description"] . "</td>";
+               echo "<td>" . $row["price"] . "</td>";
+               echo "<td>" . $row["image_url"] . "</td>";
+               echo '<td><button onclick="deleteProduct(' . $row["id"] . ')">Delete</button></td>';
+               echo '<td><button onclick="editProduct(' . $row["id"] . ')">Edit</button></td>';
+               echo "</tr>";
+           }
+       } else {
+           echo "<tr><td colspan='6'>No products found</td></tr>";
+       }
+       $conn->close();
+       ?>
+   </table>
 
     <script>
         function toggleForm() {
             var form = document.getElementById("addForm");
             form.style.display = form.style.display === "none" ? "block" : "none";
         }
+
         function editProduct(id) {
-        // You can redirect to an edit page passing the ID as a parameter
-        // For example, redirect to edit_product.php?id={id}
-        window.location.href = 'edit_product.php?id=' + id;
-    }
+            window.location.href = 'edit_product.php?id=' + id;
+        }
+
         function deleteProduct(id) {
             if (confirm('Are you sure you want to delete this item?')) {
                 $.ajax({

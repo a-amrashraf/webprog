@@ -20,11 +20,24 @@
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $newDescription = $_POST['description'];
+                $newPrice = $_POST['price'];
+                $newImageURL = $_POST['image_url'];
+
+                // Update product details in the database
+                $updateSql = "UPDATE product SET description='$newDescription', price='$newPrice', image_url='$newImageURL' WHERE id=$id";
+                if ($conn->query($updateSql) === TRUE) {
+                    // Redirect to admin dashboard after updating
+                    header("Location: admin_dashboard.php");
+                    exit();
+                } else {
+                    echo "Error updating product: " . $conn->error;
+                }
+            }
     ?>
             <!-- Form to edit the product -->
-            <form action="update_product.php" method="POST">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-
+            <form action="" method="POST">
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description" value="<?php echo $row['description']; ?>" required><br><br>
 
@@ -36,6 +49,8 @@
 
                 <input type="submit" value="Update">
             </form>
+            <br>
+            <a href="admin_dashboard.php"><button>Return to Dashboard</button></a>
     <?php
         } else {
             echo "Product not found.";
