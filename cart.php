@@ -1,3 +1,14 @@
+<?php
+session_start(); // Starting the session
+
+// Check if the username is stored in the session
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+} else {
+    // If the username is not set in the session, display a message or handle it as per your requirement
+    echo '<script>window.location.href = "log-in.php";</script>';
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

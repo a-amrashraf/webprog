@@ -89,7 +89,7 @@ body {
                     <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
                     <button id="signin" class="btn btn-primary btn-md center-block" onclick="location.href='signin.php';">Sign Up</button>
                     <button id="Forgot" class="btn btn-danger btn-md center-block" onclick="redirectToAdmin()">Admin Login</button>
-                    <button class="btn btn-outline-primary back-to-home" onclick="location.href='index.html';">Back to Home</button>
+                    <button class="btn btn-outline-primary back-to-home" onclick="location.href='index.php';">Back to Home</button>
                 </form>
                 <!-- Display the retrieved username -->
                 <?php
@@ -107,7 +107,7 @@ if (isset($_POST['btn'])) {
         // Store the username in a session variable
         $_SESSION['username'] = $user;
         
-        // Redirect to index.html
+        // Redirect to index.php
         header("Location: index.php");
         exit(); // Ensure that subsequent code is not executed after redirection
     } else {
