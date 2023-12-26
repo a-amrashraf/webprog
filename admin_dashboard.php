@@ -44,7 +44,7 @@
         <input type="text" class="form-control" id="image_url" name="image_url" required><br><br>
     </div>
         <input class="add-tab-button" type="submit" value="Add to Table">
-        <p style="margain:5px;">NOTE</p>
+        <p style="margin:5px;">NOTE</p>
     <p>Every item has a certain range of Ids <br>  Tires: 100 < T < 200 <br> Oils: 200 < O < 300 <br> Batteries: 300 < B < 400 <br> Services: 400 < S < 500 <br> Accessories: 500 < A < 600 </p>
     </form>
     </div>
