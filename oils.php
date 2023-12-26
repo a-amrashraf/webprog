@@ -1,3 +1,11 @@
+<?php
+session_start(); // Starting the session
+
+// Check if the username is stored in the session
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+} 
+?>
 <!DOCTYPE html>
 <html>
 
