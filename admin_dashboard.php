@@ -50,7 +50,7 @@
     </div>
     </div>
     </div>
-    <a href="index.html"><button>Home Page</button></a>
+    <a href="index.php"><button>Home Page</button></a>
 
    <!-- Show Product Table -->
    <table class="table" border="1">
