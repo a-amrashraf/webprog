@@ -1,3 +1,15 @@
+<?php
+session_start(); // Starting the session
+
+// Check if the username is stored in the session
+if(isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+} else {
+    // If the username is not set in the session, display a message or handle it as per your requirement
+    echo "<h4>User not logged in</h4>";
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +32,7 @@
                 <a href="log-in.php">
                  <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </a>
+                <div class="name"><?php echo 'Welcome  ' .$_SESSION['username'].'';  ?></div>
             </div>
         </div>
          

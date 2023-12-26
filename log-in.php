@@ -93,24 +93,31 @@ body {
                 </form>
                 <!-- Display the retrieved username -->
                 <?php
-                if (isset($_POST['btn'])) {
-                    $user = $_POST["user"]; // Update variable name
-                    $password = $_POST["pwd"]; // Update variable name
-                    
-                    $conn = mysqli_connect("localhost", "root", "", "businessdb");
-                    $stmt = "SELECT * from user where Username='$user' AND Password='$password'";
-                    $result = mysqli_query($conn, $stmt);
-                    if ($row = mysqli_fetch_array($result)) {
-                        // Store the username in a variable
-                        $retrievedUsername = $user;
-                        // Display a welcome message with the retrieved username
-                        echo "<h3>Welcome, $retrievedUsername!</h3>";
-                    } else {
-                        echo "<h4>Login failed. Username or password are incorrect</h4>";
-                    }
-                    mysqli_close($conn);
-                }
-                ?>
+session_start(); // Starting the session
+
+if (isset($_POST['btn'])) {
+    $user = $_POST["user"]; // Update variable name
+    $password = $_POST["pwd"]; // Update variable name
+    
+    $conn = mysqli_connect("localhost", "root", "", "businessdb");
+    $stmt = "SELECT * from user where Username='$user' AND Password='$password'";
+    $result = mysqli_query($conn, $stmt);
+    
+    if ($row = mysqli_fetch_array($result)) {
+        // Store the username in a session variable
+        $_SESSION['username'] = $user;
+        
+        // Redirect to index.html
+        header("Location: index.php");
+        exit(); // Ensure that subsequent code is not executed after redirection
+    } else {
+        echo "<h4>Login failed. Username or password are incorrect</h4>";
+    }
+    
+    mysqli_close($conn);
+}
+?>
+
             </div>
         </div>
     </div>
