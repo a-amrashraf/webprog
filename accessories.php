@@ -13,7 +13,7 @@
 <div class="info">
     <div class="blackRectangle">
     <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
-    <a href="tires.php" class="text">Home Page </a>
+    <a href="index.php" class="text">Home Page </a>
         <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
         <span class="text">19255</span>
         <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>

@@ -4,10 +4,7 @@ session_start(); // Starting the session
 // Check if the username is stored in the session
 if(isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-} else {
-    // If the username is not set in the session, display a message or handle it as per your requirement
-    echo '<script>window.location.href = "log-in.php";</script>';
-}
+} 
 ?>
 <!DOCTYPE html>
 <html>
@@ -219,11 +216,7 @@ echo '</div>';
 
 <div class="slideshow-container">
 <h2 class="name">CONTINUE SHOPPING</h2><br>
-    <!-- Images in the slideshow -->
-    <!-- Add these buttons to your HTML -->
 <button class="prev" onclick="plusSlides(-1)"> Prev</button>
-
-
     <a href="tires.php">
     <img class="mySlides" src="https://images.all-free-download.com/images/graphiclarge/tires_stacked_312349.jpg">
     </a>
@@ -379,11 +372,20 @@ function showSlidesManually(n) {
     function goToIndex() {
         window.location.href = 'index.html';
     }
-    function checkout() {
-        
-        alert("your order is confirmed.  Thank you for shopping with us");
-    
+
+function checkout() {
+    <?php
+    // Check if 'username' session variable is set and not empty
+    if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+        // Display the confirmation message if the user is logged in
+        echo 'alert("Your order is confirmed. Thank you for shopping with us");';
+    } else {
+        // Redirect to login.php if the user is not logged in
+        echo 'window.location.href = "log-in.php";';
+    }
+    ?>
 }
+
    
 
 </script>
