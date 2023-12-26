@@ -171,59 +171,6 @@ echo '</div>';
 <button class="cart_btn" onclick="checkout()">CheckOut </button>
 </div>
 
-<h2>YOU MIGHT ALSO NEED</h2>
-<<div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="box p-3">
-        <div class="img-box">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrFkSGN2ANO36MV_xd2xKHzmxT1TyZ698K9Q&usqp=CAU" alt="tire repair">
-          <button onclick="runQuery(34)" class="add_cart_btn">
-            <span>Add To Cart</span>
-          </button>
-        </div>
-        <div class="detail-box">
-          <h5>Tire Repair - service, Runflat "1 tire"</h5>
-          <div class="product_info">
-            <h5><span>E£</span> 120</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="box p-3">
-        <div class="img-box">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrFkSGN2ANO36MV_xd2xKHzmxT1TyZ698K9Q&usqp=CAU" alt="tire repair">
-          <button onclick="runQuery(35)" class="add_cart_btn">
-            <span>Add To Cart</span>
-          </button>
-        </div>
-        <div class="detail-box">
-          <h5>Tire repair - service, Regular "1 tire"</h5>
-          <div class="product_info">
-            <h5><span>E£</span> 100</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="box p-3">
-        <div class="img-box ">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqsjXCeRCN04HxKqn1ydihAHgXdgKDFYgp6A&usqp=CAU" alt="car detailing">
-          <button onclick="runQuery(36)" class="add_cart_btn">
-            <span>Add To Cart</span>
-          </button>
-        </div>
-        <div class="detail-box">
-          <h5>Car detailing - service</h5>
-          <div class="product_info">
-            <h5><span>E£</span> 200</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
      
 <div class="lowerpRectangle">
