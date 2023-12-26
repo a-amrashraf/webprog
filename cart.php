@@ -40,7 +40,7 @@
             </div>
         </div>
          
-        <h1 class="name">MY CART</h2><br>
+        <h1 class="name">MY CART</h1><br>
         <div class="container">
     <h2>Products</h2>
     <table class="table table-bordered">
@@ -188,6 +188,7 @@ echo '</div>';
 </div>
 
 <div class="slideshow-container">
+<h2 class="name">CONTINUE SHOPPING</h2><br>
     <!-- Images in the slideshow -->
     <a href="tires.php">
     <img class="mySlides" src="https://images.all-free-download.com/images/graphiclarge/tires_stacked_312349.jpg">
