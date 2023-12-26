@@ -1,3 +1,38 @@
+<?php
+session_start(); // Starting the session
+
+if (isset($_POST['btn'])) {
+    $user = $_POST["user"]; // Update variable name
+    $password = $_POST["pwd"]; // Update variable name
+    
+    $conn = mysqli_connect("localhost", "root", "", "businessdb");
+    $stmt = "SELECT * from user where Username='$user' AND Password='$password'";
+    $result = mysqli_query($conn, $stmt);
+    
+    if ($row = mysqli_fetch_array($result)) {
+        // Store the username in a session variable
+        $_SESSION['username'] = $user;
+        
+        // Redirect to index.php
+        header("Location: index.php");
+        exit(); // Ensure that subsequent code is not executed after redirection
+    } else {
+        echo "<h4>Login failed. Username or password are incorrect</h4>";
+    }
+    
+    mysqli_close($conn);
+}
+// Check if the signout button is clicked
+if(isset($_POST['signout'])) {
+    // Clear all session variables
+    session_unset();
+    // Destroy the session
+    session_destroy();
+    // Redirect to the login page or any other desired page
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,37 +126,23 @@ body {
                     <button id="Forgot" class="btn btn-danger btn-md center-block" onclick="redirectToAdmin()">Admin Login</button>
                     <button class="btn btn-outline-primary back-to-home" onclick="location.href='index.php';">Back to Home</button>
                 </form>
+               
                 <!-- Display the retrieved username -->
-                <?php
-session_start(); // Starting the session
-
-if (isset($_POST['btn'])) {
-    $user = $_POST["user"]; // Update variable name
-    $password = $_POST["pwd"]; // Update variable name
-    
-    $conn = mysqli_connect("localhost", "root", "", "businessdb");
-    $stmt = "SELECT * from user where Username='$user' AND Password='$password'";
-    $result = mysqli_query($conn, $stmt);
-    
-    if ($row = mysqli_fetch_array($result)) {
-        // Store the username in a session variable
-        $_SESSION['username'] = $user;
-        
-        // Redirect to index.php
-        header("Location: index.php");
-        exit(); // Ensure that subsequent code is not executed after redirection
-    } else {
-        echo "<h4>Login failed. Username or password are incorrect</h4>";
-    }
-    
-    mysqli_close($conn);
-}
-?>
+                
 
             </div>
         </div>
     </div>
-
+    <?php
+// Check if 'username' session variable is set and not empty
+if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+    // Display the Sign Out button if there's an active session
+    echo '
+    <form method="post">
+        <button type="submit" name="signout" class="btn btn-outline-danger">Sign Out</button>
+    </form>';
+}
+?>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
