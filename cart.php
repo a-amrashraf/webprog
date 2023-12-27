@@ -294,7 +294,7 @@ echo '</div>';
                 <div class="whitepText">
                     <h5>Useful Links</h5>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a>About us</a></li>
                         <li><a>Why Us</a></li>
                     </ul>
@@ -397,7 +397,7 @@ function showSlidesManually(n) {
 
 <script>
     function goToIndex() {
-        window.location.href = 'index.html';
+        window.location.href = 'index.php';
     }
 
     function showDeliveryForm() {
@@ -409,6 +409,7 @@ function showSlidesManually(n) {
             } else {
                 // Display alert if the user is not logged in
                 echo 'alert("Please log in to proceed.");';
+                
             }
             ?>
         }
