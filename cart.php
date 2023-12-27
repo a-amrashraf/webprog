@@ -47,6 +47,17 @@ if(isset($_SESSION['username'])) {
 .next {
     right: 0;
 }
+.delivery-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #fff;
+            z-index: 1000;
+        }
     </style>
     </head>
 <body>
@@ -211,9 +222,25 @@ echo '</div>';
 <div class="container">
     
 <button class="cart_btn" onclick="goToIndex()">Continue Shopping </button>
-<button class="cart_btn" onclick="checkout()">CheckOut </button>
+<button class="cart_btn" onclick="showDeliveryForm()">Checkout</button>
 </div>
+ <!-- Delivery address form (hidden by default) -->
+ <div class="delivery-form" id="deliveryForm">
+        <h2>Enter Delivery Address</h2>
+        <form action="cart.php" method="post">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
 
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required><br><br>
+
+            <label for="zip">ZIP/Postal Code:</label>
+            <input type="text" id="zip" name="zip" required><br><br>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 <div class="slideshow-container">
 <h2 class="name">CONTINUE SHOPPING</h2><br>
 <button class="prev" onclick="plusSlides(-1)"> Prev</button>
@@ -373,18 +400,18 @@ function showSlidesManually(n) {
         window.location.href = 'index.html';
     }
 
-function checkout() {
-    <?php
-    // Check if 'username' session variable is set and not empty
-    if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-        // Display the confirmation message if the user is logged in
-        echo 'alert("Your order is confirmed. Thank you for shopping with us");';
-    } else {
-        // Redirect to login.php if the user is not logged in
-        echo 'window.location.href = "log-in.php";';
-    }
-    ?>
-}
+    function showDeliveryForm() {
+            <?php
+            // Check if 'username' session variable is set and not empty
+            if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+                // Show the delivery form
+                echo 'document.getElementById("deliveryForm").style.display = "block";';
+            } else {
+                // Display alert if the user is not logged in
+                echo 'alert("Please log in to proceed.");';
+            }
+            ?>
+        }
 
    
 
