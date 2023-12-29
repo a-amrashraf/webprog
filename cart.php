@@ -326,7 +326,7 @@ echo '</div>';
         if ($result->num_rows > 0) {
             // Display table headers
             echo '<table border="1">';
-            echo '<tr><th>ID</th><th>Description</th><th>Price</th><th>Quantity</th><th>Address</th><th>City</th><th>ZIP</th><th>User ID</th></tr>';
+            echo '<tr><th>ID</th><th>Description</th><th>Price</th><th>Quantity</th><th>Address</th><th>City</th><th>ZIP</th><th>Username</th><th>Created At</th></tr>';
 
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
@@ -339,6 +339,8 @@ echo '</div>';
                 echo "<td>" . $row["city"] . "</td>";
                 echo "<td>" . $row["zip"] . "</td>";
                 echo "<td>" . $row["username"] . "</td>";
+                echo "<td>" . $row["created_at"] . "</td>"; // Output the created_at column
+
                 echo "</tr>";
             }
 
