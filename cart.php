@@ -162,6 +162,7 @@ if (isset($_POST['delete_id'])) {
 
     mysqli_stmt_close($stmtDelete);
 }
+
 // Assuming the form data is submitted and address details are available
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['zip'])) {
     // Process the form data
@@ -181,10 +182,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['address']) && isset($
             $price = $row['price'];
             $quantity = $row['quantity'];
 
-            // Insert fetched data along with address details into delivery_items table
-            $moveToDeliveryQuery = "INSERT INTO delivery_items (product_id, description, price, quantity, address, city, zip) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            // Insert fetched data along with address details and username into delivery_items table
+            $moveToDeliveryQuery = "INSERT INTO delivery_items (product_id, description, price, quantity, address, city, zip, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $moveToDeliveryQuery);
-            mysqli_stmt_bind_param($stmt, 'isdisss', $product_id, $description, $price, $quantity, $address, $city, $zip);
+            mysqli_stmt_bind_param($stmt, 'isdissss', $product_id, $description, $price, $quantity, $address, $city, $zip, $username);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
         }
