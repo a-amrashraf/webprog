@@ -99,22 +99,43 @@
             window.location.href = 'edit_product.php?id=' + id;
         }
 
-        function deleteProduct(id) {
-            if (confirm('Are you sure you want to delete this item?')) {
-                $.ajax({
-                    type: 'POST',
-                    url: 'delete_product.php',
-                    data: { delete_id: id },
-                    success: function(response) {
-                        if (response === 'success') {
-                            location.reload();
-                        } else {
-                            alert('Error deleting product.');
-                        }
+        // Function to handle deletion using AJAX
+    function deleteProduct(id) {
+        console.log("Deleting product with ID: " + id); // Add this line to check if the correct ID is received
+        if (confirm('Are you sure you want to delete this item?')) {
+            $.ajax({
+                type: 'POST',
+                url: 'admin_dashboard.php', // Point to the same file for handling deletion
+                data: { delete_id: id }, // Pass the delete ID to be handled in the same file
+                success: function(response) {
+                    if (response.trim() === 'success') {
+                        location.reload(); // Reload the page upon successful deletion
+                    } else {
+                        alert('Error deleting product.');
                     }
-                });
-            }
+                }
+            });
         }
+    }
     </script>
+    <?php
+// Include connection and other PHP code
+// ...
+include_once('connection.php');
+
+// Check for POST request and delete_id parameter
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
+    $id = $_POST['delete_id'];
+
+    // Perform deletion in the database
+    $sql = "DELETE FROM product WHERE id = $id";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "success"; // Send success response back to AJAX call
+    } else {
+        echo "error"; // Send error response back to AJAX call
+    }
+}
+?>
 </body>
 </html>
