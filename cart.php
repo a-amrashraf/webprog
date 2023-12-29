@@ -123,6 +123,7 @@ if (isset($_GET['id'])) {
     }
 }
 
+
 // Handle form submission for updating quantity
 if (isset($_POST['update_id']) && isset($_POST['quantity'])) {
     $updateId = $_POST['update_id'];
@@ -160,6 +161,44 @@ if (isset($_POST['delete_id'])) {
     }
 
     mysqli_stmt_close($stmtDelete);
+}
+// Assuming the form data is submitted and address details are available
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['address']) && isset($_POST['city']) && isset($_POST['zip'])) {
+    // Process the form data
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $zip = $_POST['zip'];
+
+    // Fetch data from the cart table
+    $selectCartQuery = "SELECT id, description, price, quantity FROM cart";
+    $result = mysqli_query($conn, $selectCartQuery);
+
+    if ($result) {
+        // Loop through the cart items and insert into delivery_items table
+        while ($row = mysqli_fetch_assoc($result)) {
+            $product_id = $row['id'];
+            $description = $row['description'];
+            $price = $row['price'];
+            $quantity = $row['quantity'];
+
+            // Insert fetched data along with address details into delivery_items table
+            $moveToDeliveryQuery = "INSERT INTO delivery_items (product_id, description, price, quantity, address, city, zip) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($conn, $moveToDeliveryQuery);
+            mysqli_stmt_bind_param($stmt, 'isdisss', $product_id, $description, $price, $quantity, $address, $city, $zip);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        }
+
+        // Clear the cart table after moving data to delivery_items
+        $clearCartQuery = "DELETE FROM cart";
+        mysqli_query($conn, $clearCartQuery);
+
+        // Redirect to a thank you page or any other desired location after processing the delivery address
+        header('Location: index.php');
+        exit();
+    } else {
+        echo "Error fetching data: " . mysqli_error($conn);
+    }
 }
 
 // Display existing cart items with quantity controls and delete option
@@ -214,6 +253,11 @@ if ($resultCart) {
     echo "Query execution failed for the cart";
 }
 echo '</div>';
+
+
+// Rest of your HTML/PHP code (form, display, etc.) goes here
+
+// Close the database connection
 ?>
     </tbody>
     </table>
