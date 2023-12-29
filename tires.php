@@ -17,7 +17,13 @@ if(isset($_SESSION['username'])) {
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Tires</title>
-  
+  <style>
+    .card {
+      margin: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
+    }
+    </style>
  
 </head>
 
@@ -56,24 +62,27 @@ include_once('connection.php');
 $sql = "SELECT id, image_url, description, price FROM product WHERE id >100 AND id < 200";
 $result = $conn->query($sql);
 
+echo '<div class="container">';
+echo '<div class="row">';
 // Check if there are results
 if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
-      echo '<figure class="figure" style="margin: 27px; padding-left: 25px;">';
+        echo '<div class="card" style="width: 18rem;">';
         echo '<img style="width:260px; height:230px;" src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
-        echo '<figcaption style="padding-top:10px;">';
+        echo '<div class="card-body">';
         echo "<p>Product ID: " . $row["id"] . "</p>";
         echo "<p>Name: " . $row["description"] . "</p>";
         echo "<p>Price: $" . $row["price"] . "</p>";
-        echo '</figcaption>';
         echo '<button class="add_cart_btn" data-id="' . $row["id"] . '" data-description="' . $row["description"] . '" data-price="' . $row["price"] . '">Add to Cart</button>';
-        echo '</figure>';
+        echo '</div>';
         echo '</div>';
     }
 } else {
     echo "0 results";
 }
+echo '</div>';
+echo '</div>';
 $conn->close();
 ?>
   <!-- end product section -->

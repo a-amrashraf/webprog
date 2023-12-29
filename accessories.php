@@ -16,6 +16,13 @@ if(isset($_SESSION['username'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    .card {
+      margin: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
+    }
+    </style>
 </head>
 <body>
 <div class="info">
@@ -44,7 +51,7 @@ if(isset($_SESSION['username'])) {
     </div>
 </div> 
 
-     <h1>Product Listing</h1>
+     <h2>Product Listing</h2>
      <div class="product-list">
 
     <?php
@@ -53,24 +60,27 @@ if(isset($_SESSION['username'])) {
     $sql = "SELECT id, image_url, description, price FROM product WHERE id > 500 AND id < 600";
     $result = $conn->query($sql);
 
+    echo '<div class="container">';
+    echo '<div class="row">';
     // Check if there are results
     if ($result->num_rows > 0) {
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
-            echo '<figure class="figure" style="margin: 27px; padding-left: 25px;">';
+            echo '<div class="card" style="width: 18rem;">';
             echo '<img style="width:250px; height:250px;" src="' . $row["image_url"] . '" alt="' . $row["description"] . '">';
-            echo '<figcaption style="padding-top:10px;">';
+            echo '<div class="card-body">'; 
             echo "<p>Product ID: " . $row["id"] . "</p>";
             echo "<p>Name: " . $row["description"] . "</p>";
             echo "<p>Price: $" . $row["price"] . "</p>";
-            echo '</figcaption>';
             echo '<button class="add_cart_btn" onclick="addToCart(' . $row["id"] . ', \'' . $row["description"] . '\', ' . $row["price"] . ')">Add to Cart</button>';
-            echo '</figure>';
+            echo '</div>';
             echo '</div>';
         }
     } else {
         echo "0 results";
     }
+    echo '</div>';
+    echo '</div>';
     $conn->close();
     ?>
     </div>
