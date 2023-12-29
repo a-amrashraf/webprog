@@ -20,7 +20,9 @@
 
     <!-- Add Button to Toggle Form Visibility -->
     <button  onclick="toggleForm()">Add Product</button>
-
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="delivery.php"><button>View Deliveries</button></a>
+    </div>
     <!-- Form to add rows to the product table (Initially Hidden) -->
     
     <div class="container">
