@@ -125,6 +125,7 @@ body {
                     <button id="signin" class="btn btn-primary btn-md center-block" onclick="location.href='signin.php';">Sign Up</button>
                     <button id="Forgot" class="btn btn-danger btn-md center-block" onclick="redirectToAdmin()">Admin Login</button>
                     <button class="btn btn-outline-primary back-to-home" onclick="location.href='index.php';">Back to Home</button>
+                    
                 </form>
                
                 <!-- Display the retrieved username -->

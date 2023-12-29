@@ -58,6 +58,14 @@ if(isset($_SESSION['username'])) {
             background: #fff;
             z-index: 1000;
         }
+    
+    .container {
+        width: 80%; /* Adjust the width as needed */
+        margin: 0 auto; /* This centers the container horizontally */
+        /* Additional styles for the container if needed */
+    }
+
+
     </style>
     </head>
 <body>
@@ -77,20 +85,11 @@ if(isset($_SESSION['username'])) {
                 </a>
             </div>
         </div>
-         
-        <h1 class="name">MY CART</h1><br>
+
+
         <div class="container">
-    <h2>Products</h2>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="text-left">ID</th>
-                <th class="text-center" style="width:35%;">Product Name</th>
-                <th style="text-align:center; width:120px;">Price</th>
-                <th>Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
+        <h1 class="name">MY CART</h1><br>
+        
         <?php
 include_once('connection.php');
 
@@ -212,32 +211,37 @@ $totalPrice = 0; // Initializing the total price variable
 // Display existing cart items with quantity controls and delete option
 if ($resultCart) {
     if (mysqli_num_rows($resultCart) > 0) {
-        echo '<table >';
         
-
+        echo '<class="row">';
+        echo '<table class="table-md table-bordered ">';
+        echo '<thead style="text-align:center;">';
+        echo '<tr>';
+        echo '<th>ID</th>';
+        echo '<th>Description</th>';
+        echo '<th>Price</th>';
+        echo '<th>Quantity</th>';
+        echo '</tr>';
         while ($row = mysqli_fetch_assoc($resultCart)) {
             echo '<tr >';
-            echo '<th style="padding-left: 10px; padding-right: 95px;">' . $row['id'] . '</th>';
-            echo '<th style=" text-align:center; padding-left:85px; padding-right:50px; min-width:465px; position:absoulte; ">' . $row['description'] . '</th>';
-            echo '<th style="padding-right:80px; ">' . $row['price'] . '</th>';
-            echo '<th style="text-align:right;">';
-            
+            echo '<th >' . $row['id'] . '</th>';
+            echo '<th >' . $row['description'] . '</th>';
+            echo '<th >' . $row['price'] . '</th>';
+            echo '<th >';
             echo '<form method="post">';
             echo '<input  type="hidden" name="delete_id" value="' . $row['id'] . '">';
-        
             // Minus button
-            echo '<button style="" type="button" class="quantity-button" data-type="minus">-</button>';
+            echo '<button type="button" class="quantity-button" data-type="minus">-</button>';
         
             // Quantity input field
-            echo '<input  type="text" style="width:80px; text-align:center; " name="quantity" value="' . $row['quantity'] . '">';
+            echo '<input  type="text" style="width:80px; height:35px; text-align:center; " name="quantity" value="' . $row['quantity'] . '">';
         
             // Plus button
-            echo '<button style="" type="button" class="quantity-button" data-type="plus">+</button>';
+            echo '<button  type="button" class="quantity-button" data-type="plus">+</button>';
         
-            echo '<button style="" type="submit" class="upd-button" name="update_id" value="' . $row['id'] . '">Update</button>';
+            echo '<button  type="submit" class="upd-button" name="update_id" value="' . $row['id'] . '">Update</button>';
         
             // Delete button
-            echo '<button style="" type="button" class="delete-button" data-id="' . $row['id'] . '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+            echo '<button   class="delete-button" data-id="' . $row['id'] . '"><i class="fa fa-trash" aria-hidden="true"></i></button>';
             echo '</form>';
             echo '</th>';
             echo '</tr>';
@@ -245,7 +249,7 @@ if ($resultCart) {
             $totalPrice += $row['price'] * $row['quantity'];
         }
     
-        echo '<tr><th><strong>Total:</strong></th><th style="font-size:20px;">' . $totalPrice . '</th><th></th></tr>';
+        echo '<tr><th><strong>Total:</strong></th><th colspan="2" style="font-size:20px; text-align:center; " >' . $totalPrice . '</th><th></th></tr>';
         echo '</table>';
     } else {
         echo "No items in the cart";
@@ -254,6 +258,8 @@ if ($resultCart) {
     echo "Query execution failed for the cart";
 }
 echo '</div>';
+
+
 
 
 // Rest of your HTML/PHP code (form, display, etc.) goes here
@@ -324,10 +330,22 @@ echo '</div>';
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            // Display table headers
-            echo '<table border="1">';
-            echo '<tr><th>ID</th><th>Description</th><th>Price</th><th>Quantity</th><th>Address</th><th>City</th><th>ZIP</th><th>Username</th><th>Created At</th></tr>';
-
+            echo "<h2>Previous orders</h2>";
+            echo "<div class='container'>";
+            echo '<class="row">';
+            echo '<table class="table-md table-bordered ">';
+            echo '<thead style="text-align:center;">';
+        echo '<tr>';
+        echo '<th>ID</th>';
+        echo '<th>Description</th>';
+        echo '<th>Price</th>';
+        echo '<th>Quantity</th>';
+        echo '<th>Address</th>';
+        echo '<th>City</th>';
+        echo '<th>Username</th>';
+        echo '<th>Created At</th>';
+        echo '</tr>';
+        echo '</thead>';  
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
@@ -337,17 +355,16 @@ echo '</div>';
                 echo "<td>" . $row["quantity"] . "</td>";
                 echo "<td>" . $row["address"] . "</td>";
                 echo "<td>" . $row["city"] . "</td>";
-                echo "<td>" . $row["zip"] . "</td>";
                 echo "<td>" . $row["username"] . "</td>";
                 echo "<td>" . $row["created_at"] . "</td>"; // Output the created_at column
-
                 echo "</tr>";
             }
-
             echo "</table>";
         } else {
             echo "No delivery items found for this username";
         }
+        echo "</div>";
+        echo "</div>";
 
         // Close the statement and connection
         $stmt->close();
