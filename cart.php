@@ -304,6 +304,56 @@ echo '</div>';
     <button class="next" onclick="plusSlides(1)">Next </button>
 </div>
 
+
+
+
+
+<?php
+
+    // Include the connection file
+    include_once('connection.php');
+
+    // Check if $username is set from the session
+    if(isset($username)) {
+
+        // Fetch data from the delivery_items table based on the provided username
+        $sql = "SELECT * FROM delivery_items WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            // Display table headers
+            echo '<table border="1">';
+            echo '<tr><th>ID</th><th>Description</th><th>Price</th><th>Quantity</th><th>Address</th><th>City</th><th>ZIP</th><th>User ID</th></tr>';
+
+            // Output data of each row
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["product_id"] . "</td>";
+                echo "<td>" . $row["description"] . "</td>";
+                echo "<td>" . $row["price"] . "</td>";
+                echo "<td>" . $row["quantity"] . "</td>";
+                echo "<td>" . $row["address"] . "</td>";
+                echo "<td>" . $row["city"] . "</td>";
+                echo "<td>" . $row["zip"] . "</td>";
+                echo "<td>" . $row["username"] . "</td>";
+                echo "</tr>";
+            }
+
+            echo "</table>";
+        } else {
+            echo "No delivery items found for this username";
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $conn->close();
+    } 
+?>
+
+
      
 <div class="lowerpRectangle">
     <div class="container">
