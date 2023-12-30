@@ -126,6 +126,7 @@ if(isset($_SESSION['username'])) {
             </div>
         </div>
 </div>
+</div>
 
     <h2 class="shopFromGhayarly">WHY SHOP ONLINE FROM GHAYARLY</h2>
     <div class="container2 ">
