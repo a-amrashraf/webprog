@@ -20,8 +20,12 @@
 
     <!-- Add Button to Toggle Form Visibility -->
     <button  onclick="toggleForm()">Add Product</button>
-    <div style="text-align: center; margin-bottom: 20px;">
+    <div style=" margin-bottom: 20px; margin-top:20px;">
         <a href="delivery.php"><button>View Deliveries</button></a>
+       
+    </div>
+    <div style=" margin-bottom: 20px; margin-top:20px;">
+    <a href="index.php"><button>Home Page</button></a>
     </div>
     <!-- Form to add rows to the product table (Initially Hidden) -->
     
@@ -52,7 +56,7 @@
     </div>
     </div>
     </div>
-    <a href="index.php"><button>Home Page</button></a>
+   
 
    <!-- Show Product Table -->
    <table class="table" border="1">

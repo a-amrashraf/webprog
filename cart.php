@@ -64,7 +64,9 @@ if(isset($_SESSION['username'])) {
         margin: 0 auto; /* This centers the container horizontally */
         /* Additional styles for the container if needed */
     }
-
+    body {
+    background-color: #7f819f4d ;
+  }
 
     </style>
     </head>
