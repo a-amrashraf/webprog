@@ -103,24 +103,24 @@
             window.location.href = 'edit_product.php?id=' + id;
         }
 
-        // Function to handle deletion using AJAX
-    function deleteProduct(id) {
-        console.log("Deleting product with ID: " + id); // Add this line to check if the correct ID is received
-        if (confirm('Are you sure you want to delete this item?')) {
-            $.ajax({
-                type: 'POST',
-                url: 'admin_dashboard.php', // Point to the same file for handling deletion
-                data: { delete_id: id }, // Pass the delete ID to be handled in the same file
-                success: function(response) {
-                    if (response.trim() === 'success') {
-                        location.reload(); // Reload the page upon successful deletion
-                    } else {
-                        alert('Error deleting product.');
+        function deleteProduct(id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'delete_product.php',
+                    data: { delete_id: id },
+                    success: function(response) {
+                        if (response === 'success') {
+                            // Reload the current page after successful deletion
+                            location.reload();
+                        } else {
+                            alert('Error deleting product.');
+                        }
                     }
-                }
-            });
+                });
+            }
         }
-    }
+    
     </script>
     <?php
 // Include connection and other PHP code
