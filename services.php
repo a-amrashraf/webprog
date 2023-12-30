@@ -24,7 +24,7 @@ if(isset($_SESSION['username'])) {
       text-align: center;
     }
     body {
-    background-color:#b0b3d0fd  ;
+    background-color:#7f819f4d  ;
   }
     </style>
 </head>
@@ -47,11 +47,12 @@ if(isset($_SESSION['username'])) {
          <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
         </a>
         <div class="name">
-    <?php 
+        <?php 
     if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-        echo 'Welcome ' . $_SESSION['username'];
+        echo '<span style="font-size: 20px; margin-top:-10px;">Welcome ' . $_SESSION['username'] . '</span>';
     } else {
-        echo 'Welcome Guest'; // or any default message if the username is not set
+        echo '<h2 style="font-size: 18px;">Welcome Guest</h2>';
+ // or any default message if the username is not set
     }
     ?>
 </div>      

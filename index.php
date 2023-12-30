@@ -18,7 +18,7 @@ if(isset($_SESSION['username'])) {
         <style>
             
             body {
-    background-color:#b0b3d0fd  ;
+    background-color: #7f819f4d ;
   }
     .card {
       margin: 10px;
