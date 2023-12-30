@@ -103,6 +103,7 @@ padding-bottom:2vw ;
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-top: 100px;
 }
 
 /* Media query for smaller screens */
@@ -241,5 +242,3 @@ button{
     font-size: 16px;
 }
 
-
-  

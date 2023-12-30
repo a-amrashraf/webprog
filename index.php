@@ -146,7 +146,15 @@ if(isset($_SESSION['username'])) {
         </div>
     </div>
 
+    <h2>PARTNERSHIPS</h2>
 
+<div class="partners">
+  <img style="width:200px; height:170px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622725242944.png" alt="Partner 2">
+  <img style="width:200px; height:170px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622724623948.png" alt="Bridgestone">
+  <img style="width:200px; height:170px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622725698800.png" alt="Partner 3">
+  <img style="width:200px; height:170px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622977886537.png" alt="Partner 4">
+  <img style="width:200px; height:170px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1627391051312.png" alt="Partner 5">
+</div>
 
 
     <div class="lowerpRectangle">
