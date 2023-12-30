@@ -23,6 +23,9 @@ if(isset($_SESSION['username'])) {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       text-align: center;
     }
+    body {
+    background-color:#b0b3d0fd  ;
+  }
     </style>
 </head>
 
@@ -55,6 +58,7 @@ if(isset($_SESSION['username'])) {
     </div>
 </div>
   <!-- product selection -->
+  <h1 class="name">BATTERIES</h2><br>
   <?php
 include_once('connection.php');
 // Fetch products
