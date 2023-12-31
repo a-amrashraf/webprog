@@ -82,7 +82,7 @@ if(isset($_SESSION['username'])) {
 </div>            </div>
         </div>
          
-        <h1 class="name">GHAYARLY</h2><br>
+        <h1 class="name">GHAYARLY</h1><br>
             <h2 class="byCategory">SHOP BY CATEGORY</h2>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">

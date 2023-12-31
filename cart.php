@@ -85,6 +85,16 @@ if(isset($_SESSION['username'])) {
                 <a href="log-in.php">
                  <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </a>
+                <div class="name">
+    <?php 
+    if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+        echo '<span style="font-size: 20px; margin-top:-10px;">Welcome ' . $_SESSION['username'] . '</span>';
+    } else {
+        echo '<h2 style="font-size: 18px;">Welcome Guest</h2>';
+ // or any default message if the username is not set
+    }
+    ?>
+</div>      
             </div>
         </div>
 
