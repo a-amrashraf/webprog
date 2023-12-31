@@ -225,7 +225,7 @@ if ($resultCart) {
     if (mysqli_num_rows($resultCart) > 0) {
         
         echo '<class="row">';
-        echo '<table class="table-md table-bordered ">';
+        echo '<table class="table-md table-bordered " >';
         echo '<thead style="text-align:center;">';
         echo '<tr>';
         echo '<th>ID</th>';
@@ -288,22 +288,30 @@ echo '</div>';
 <button class="cart_btn" onclick="showDeliveryForm()">Checkout</button>
 </div>
  <!-- Delivery address form (hidden by default) -->
+ <div class="row">
+            <div class="col-md-6 offset-md-3">
  <div class="delivery-form" id="deliveryForm">
-        <h2>Enter Delivery Address</h2>
+ <h2 class="text-center mb-4">Enter delivery address</h2>
+ <div class="user mb-3">
         <form action="cart.php" method="post">
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required><br><br>
-
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city" required><br><br>
-
-            <label for="zip">ZIP/Postal Code:</label>
-            <input type="text" id="zip" name="zip" required><br><br>
-
-
-            <input type="submit" value="Submit">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" required><br><br>
+</div>
+<div class="pass mb-3">
+            <label for="city" class="form-label" >City:</label>
+            <input type="text" class="form-control" id="city" name="city" required><br><br>
+</div>
+<div class="pass mb-3">
+            <label for="zip" class="form-label" >ZIP/Postal Code:</label>
+            <input type="text" class="form-control" id="zip" name="zip" required>
+</div>
+<button type="submit" name="btn" >Submit</button>
         </form>
     </div>
+    </div>
+</div>
+
+
 <div class="slideshow-container">
 <h2 class="name">CONTINUE SHOPPING</h2><br>
 <button class="prev" onclick="plusSlides(-1)"> Prev</button>
