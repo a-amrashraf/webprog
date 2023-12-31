@@ -306,6 +306,7 @@ echo '</div>';
             <input type="text" class="form-control" id="zip" name="zip" required>
 </div>
 <button type="submit" name="btn" >Submit</button>
+<button type="button" name="btn" onclick="location.href='cart.php';" >Back to cart</button>
         </form>
     </div>
     </div>

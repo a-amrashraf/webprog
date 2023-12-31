@@ -28,6 +28,7 @@ if(isset($_SESSION['username'])) {
       margin: 0 0.5em;
      box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
      border: 2px solid black;
+     display: flex;
     }
     .cards-wrapper {
   display: flex;
@@ -54,6 +55,13 @@ if(isset($_SESSION['username'])) {
   .card img {
     height: 11em;
   }
+  @media screen and (max-width: 767px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}
+  
 }
     </style>
     </head>
