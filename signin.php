@@ -11,6 +11,9 @@
     body{
         background-color:#1a1a2e;
     }
+    h1{
+        color:white;
+    }
     </style>
 </head>
 

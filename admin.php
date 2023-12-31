@@ -106,8 +106,9 @@ body {
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" name="btn" class="btn btn-primary btn-block">Login</button>
-        
+                    <button type="submit" name="btn" class="btn btn-primary btn-block">Sign in</button>
+                    <button type="button" name="btn" class="btn btn-primary btn-block" onclick="location.href='index.php';" >Home Page</button>
+                    <button type="button" name="btn" class="btn btn-primary btn-block" onclick="location.href='log-in.php';">Login Page</button>
     </form>
 </body>
 </html>
