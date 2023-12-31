@@ -84,6 +84,8 @@
         }
         else{
             echo"<h1>$usr was added Successfully</h1>";
+            header("Location: log-in.php"); // Redirect to log-in.php
+
         }
         }}
     ?>
