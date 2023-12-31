@@ -102,7 +102,7 @@ $conn->close();
                 </div>
                 <div class="col-md-4">
                     <p class="whiteText">About Ghayarly</p>
-                    <a href="about-us.html" class="greyText">Who we are?</a><br>
+                    <a href="about-us.php" class="greyText">Who we are?</a><br>
                     <br>
                     <a href="https://pan-marine.net/images/2020/06/18/pm-map.jpg" class="greyText">Find Stores</a>                
                 </div>

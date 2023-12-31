@@ -343,7 +343,7 @@ echo '</div>';
 
         if ($result->num_rows > 0) {
             echo "<h2>Previous orders</h2>";
-            echo "<div class='container'>";
+            echo "<div class='container' style='padding-left:120px;'>";
             echo '<class="row">';
             echo '<table class="table-md table-bordered ">';
             echo '<thead style="text-align:center;">';
@@ -397,7 +397,7 @@ echo '</div>';
                 </div>
                 <div class="col-md-4">
                     <p class="whiteText">About Ghayarly</p>
-                    <a href="about-us.html" class="greyText">Who we are?</a><br>
+                    <a href="about-us.php" class="greyText">Who we are?</a><br>
                     <br>
                     <a href="https://pan-marine.net/images/2020/06/18/pm-map.jpg" class="greyText">Find Stores</a>                
                 </div>
