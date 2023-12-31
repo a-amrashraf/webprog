@@ -514,18 +514,26 @@ function showSlidesManually(n) {
     }
 
     function showDeliveryForm() {
-            <?php
-            // Check if 'username' session variable is set and not empty
-            if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
-                // Show the delivery form
-                echo 'document.getElementById("deliveryForm").style.display = "block";';
-            } else {
-                // Display alert if the user is not logged in
-                echo 'alert("Please log in to proceed.");';
-                
-            }
-            ?>
+    <?php
+    // Check if 'username' session variable is set and not empty
+    if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+        // Assuming $totalPrice holds the total price of items in the cart
+        // Replace this with your logic to calculate the total price
+
+        if ($totalPrice == 0) {
+            // Display a message if the total price is zero (indicating an empty cart)
+            echo 'alert("Your cart is empty.");';
+        } else {
+            // Show the delivery form if the user is logged in and the cart is not empty
+            echo 'document.getElementById("deliveryForm").style.display = "block";';
         }
+    } else {
+        // Display alert if the user is not logged in
+        echo 'alert("Please log in to proceed.");';
+    }
+    ?>
+}
+
 
    
 
