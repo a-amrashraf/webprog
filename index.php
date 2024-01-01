@@ -172,17 +172,15 @@ if(isset($_SESSION['username'])) {
     </div>
 
     <h2>PARTNERSHIPS</h2>
-<div class="container">
-<div class="row">
-  <div class="col"><img style="width:180px; height:150px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622725242944.png" alt="Partner 1"></div>
-  <div class="col"><img style="width:180px; height:150px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622724623948.png" alt="Partner 2"></div>
-  <div class="col"><img style="width:180px; height:150px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622725698800.png" alt="Partner 3"></div>
-</div>
-<div class="row">
-  <div class="col"><img style="width:180px; height:150px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622977886537.png" alt="Partner 4"></div>
-  <div class="col"><img style="width:180px; height:150px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1627391051312.png" alt="Partner 5"></div>
-  <div class="col"><img style="width:180px; height:150px; margin-right: 70px;"src="https://be.fitandfix.com/media/brands/1622724700864.png" alt="Partner 6"></div>
-</div>
+    <div class="container">
+  <div class="row justify-content-center text-center">
+    <div class="col-12 col-md-4"><img style="width:180px; height:150px; margin-bottom: 20px;" src="https://be.fitandfix.com/media/brands/1622725242944.png" alt="Partner 1"></div>
+    <div class="col-12 col-md-4"><img style="width:180px; height:150px; margin-bottom: 20px;" src="https://be.fitandfix.com/media/brands/1622724623948.png" alt="Partner 2"></div>
+    <div class="col-12 col-md-4"><img style="width:180px; height:150px; margin-bottom: 20px;" src="https://be.fitandfix.com/media/brands/1622725698800.png" alt="Partner 3"></div>
+    <div class="col-12 col-md-4"><img style="width:180px; height:150px; margin-bottom: 20px;" src="https://be.fitandfix.com/media/brands/1622977886537.png" alt="Partner 4"></div>
+    <div class="col-12 col-md-4"><img style="width:180px; height:150px; margin-bottom: 20px;" src="https://be.fitandfix.com/media/brands/1627391051312.png" alt="Partner 5"></div>
+    <div class="col-12 col-md-4"><img style="width:180px; height:150px; margin-bottom: 20px;" src="https://be.fitandfix.com/media/brands/1622724700864.png" alt="Partner 6"></div>
+  </div>
 </div>
 
 
