@@ -26,11 +26,8 @@
     margin-right: 2vw;
     color: white;    
 }
-@media (max-width: 600px) {
-    .blackRectangle {
-        display: none; /* Hide the black rectangle */
-}
-}
+
+
 @media (max-width: 600px) {
     .lowerpRectangle {
         display: none; /* Hide the black rectangle */
